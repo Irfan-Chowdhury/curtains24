@@ -182,6 +182,8 @@ Route::prefix('addons')->group(function () {
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/terms-and-conditions', [HomeController::class, 'termsAndCondition'])->name('termsAndCondition');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacyPolicy');
 
 
 Route::group(['middleware' => ['XSS','checkDataTable']], function ()  {

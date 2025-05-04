@@ -1,7 +1,7 @@
     <!-- Footer Start -->
     <footer class="footer py-4">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
                     <img src="https://static.wixstatic.com/media/e01eb4_f39182f7b9934a9799ab4d03dad0aa07~mv2.png/v1/fill/w_115,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e01eb4_f39182f7b9934a9799ab4d03dad0aa07~mv2.png" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
                 </div>
@@ -14,7 +14,7 @@
                 <div class="col-md-4 mb-3">
                     <div class="text-center mb-3">
                         <a class="mb-3 font-weight-bold" href="tel:+971 52 477 2085" style="color: #000; text-decoration: none;">
-                            <h5 style="text-decoration: underline; margin: 0;">+971 52 477 2085</h5>
+                            <h5 class="font-weight-bold" style="text-decoration: underline; margin: 0;">+971 52 477 2085</h5>
                         </a>
                         <a class="mt-3" href="mailto:support@thenomad.ae" style="color: #000; text-decoration: none;">
                             <p style="font-size:18px;margin-top:10px">support@thenomad.ae</p>
@@ -36,11 +36,7 @@
 
             <hr>
 
-            <div class="text-center mb-4">
-                <img src="https://via.placeholder.com/250x40?text=Payment+Methods" alt="Payment Methods" class="img-fluid">
-            </div>
 
-            <hr>
 
             <div class="d-flex justify-content-center small-links mt-3">
                 <a href="#">Terms & Conditions</a>

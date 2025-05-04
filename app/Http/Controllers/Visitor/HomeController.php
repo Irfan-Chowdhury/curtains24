@@ -10,4 +10,14 @@ class HomeController
 	{
 		return view('visitor.pages.index');
 	}
+
+    public function termsAndCondition()
+    {
+        return view('visitor.pages.terms-and-condition');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('visitor.pages.privacy-policy');
+    }
 }
