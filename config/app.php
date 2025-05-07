@@ -185,7 +185,8 @@ return [
 		Yajra\Datatables\DatatablesServiceProvider::class,
 		App\Providers\LanguageServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
-		Maatwebsite\Excel\ExcelServiceProvider::class
+		Maatwebsite\Excel\ExcelServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -241,6 +242,7 @@ return [
 		'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 		'PDF' => Barryvdh\DomPDF\Facade::class,
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

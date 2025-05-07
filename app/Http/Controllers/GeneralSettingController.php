@@ -4,155 +4,81 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Http\traits\ENVFilePutContent;
+use App\Http\traits\ImageHandleTrait;
 use App\Models\FinanceBankCash;
 use App\Models\GeneralSetting;
 use App\Models\LeaveType;
 use App\Notifications\EmployeeLeaveNotification;
 use App\Models\User;
+use App\Services\SettingService;
 use DB;
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Notification;
-
-use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Dotenv;
-
 use function config;
 use ZipArchive;
+use Illuminate\Support\Facades\Storage;
 
 
 class GeneralSettingController extends Controller
 {
-    use ENVFilePutContent;
+    use ENVFilePutContent, ImageHandleTrait;
+
+    private $settingService;
+    public function __construct(SettingService $settingService)
+    {
+        $this->settingService = $settingService;
+    }
+
 
 	public function index()
 	{
-		if (auth()->user()->can('view-general-setting'))
-		{
-			$general_settings_data = GeneralSetting::latest()->first();
-			$accounts = FinanceBankCash::all('id', 'account_name');
-			$zones_array = array();
-			$timestamp = time();
+        if(!auth()->check()){
+            return abort('403', __('You are not authorized'));
+        }
 
+        $generalSetting = $this->settingService->getGeneralSettingData();
 
-			foreach (timezone_identifiers_list() as $key => $zone)
-			{
-				date_default_timezone_set($zone);
-				$zones_array[$key]['zone'] = $zone;
-				$zones_array[$key]['diff_from_GMT'] = 'UTC/GMT ' . date('P', $timestamp);
-			}
+        $zones_array = $this->settingService->getAllTimeZones();
 
-			return view('admin.settings.general_settings.index', compact('general_settings_data', 'zones_array', 'accounts'));
-		}
-
-		return abort('403', __('You are not authorized'));
+        return view('admin.settings.general_settings.index', compact('generalSetting', 'zones_array'));
 	}
 
-    protected function test()
-    {
-        // Notification::route('mail', 'irfanchowdhury80@gmail.com')
-        // ->notify(new EmployeeLeaveNotification(
-        //     'Irfan Chowdhury',
-        //     '12',
-        //     '2023-04-19',
-        //     '2023-04-24',
-        //     'Test',
-        // ));
-        // return 'ok';
-    }
 
 
 	public function update(Request $request, $id)
 	{
-        // return $this->test();
+        if(!auth()->check()){
+            return abort('403', __('You are not authorized'));
+        }
 
-		if (auth()->user()->can('store-general-setting'))
-		{
-			if(!env('USER_VERIFIED'))
-			{
-                $this->setErrorMessage('This feature is disabled for demo!');
-                return redirect()->back();
-			}
+        $this->validate($request, [
+            'site_logo' => 'image|mimes:jpg,jpeg,png,gif|max:100000',
+            'payment_logo' => 'image|mimes:jpg,jpeg,png,gif|max:100000',
+        ]);
 
-			$this->validate($request, [
-				'site_logo' => 'image|mimes:jpg,jpeg,png,gif|max:100000',
-			]);
+        try {
+            $this->settingService->saveData($request);
 
-			$data = $request->all();
+            $this->setSuccessMessage('Data updated successfully');
 
-			//writting timezone info in .env file
-            $this->dataWriteInENVFile('APP_TIMEZONE',$request->timezone);
-            $this->dataWriteInENVFile('Date_Format',$request->date_format);
-			$js_format = config('date_format_conversion.' . $request->date_format);
-            $this->dataWriteInENVFile('Date_Format_JS',$js_format);
-            $this->dataWriteInENVFile('RTL_LAYOUT',$request->input('rtl_layout', NULL));
-            $this->dataWriteInENVFile('ENABLE_CLOCKIN_CLOCKOUT',$request->input('enable_clockin_clockout', NULL));
-            $this->dataWriteInENVFile('ENABLE_EARLY_CLOCKIN',$request->input('enable_early_clockin', NULL));
-            $this->dataWriteInENVFile('ATTENDANCE_DEVICE_DATE_FORMAT',$request->Attendance_Device_date_format ? $request->Attendance_Device_date_format : 'm/d/Y');
+        } catch (Exception $e) {
+            $this->setErrorMessage( $e->getMessage());
+        }
 
-			$path = base_path('config/variable.php');
-
-			$searchArray = array(
-				config('variable.currency'),
-				config('variable.currency_format'), config('variable.account_id'));
-
-			$replaceArray = array($request->currency, $request->currency_format, $request->account_id);
-
-			file_put_contents($path, str_replace($searchArray, $replaceArray, file_get_contents($path)));
-
-
-			$general_setting = GeneralSetting::findOrFail($id);
-			$general_setting->id = 1;
-			$general_setting->site_title = $data['site_title'];
-			$general_setting->time_zone = $data['timezone'];
-			$general_setting->currency = $data['currency'];
-			$general_setting->currency_format = $data['currency_format'];
-			$general_setting->date_format = $data['date_format'];
-			$general_setting->default_payment_bank = $data['account_id'];
-			$general_setting->footer = $request->footer;
-			$general_setting->footer_link = $request->footer_link;
-
-			$logo = $request->site_logo;
-
-
-			if ($logo)
-			{
-				$file_path = $general_setting->site_logo;
-
-				if ($file_path)
-				{
-					$file_path = public_path('images/logo/' . $file_path);
-
-					if (file_exists($file_path))
-					{
-						unlink($file_path);
-					}
-				}
-
-				$ext = pathinfo($logo->getClientOriginalName(), PATHINFO_EXTENSION);
-				$logoName = 'logo.' . $ext;
-				$logo->move(public_path('images/logo'), $logoName);
-				$general_setting->site_logo = $logoName;
-
-			}
-			$general_setting->save();
-
-            $this->setErrorMessage('Data updated successfully');
-            return redirect()->back();
-		}
-
-		return abort('403', __('You are not authorized'));
+        return redirect()->back();
 	}
+
 
 
 	public function mailSetting()
 	{
-		if (auth()->user()->can('view-mail-setting'))
-		{
-			return view('admin.settings.mail_setting.mail');
-		}
-		return abort('403', __('You are not authorized'));
+        if(!auth()->check()) {
+            return abort('403', __('You are not authorized'));
+        }
+
+		return view('admin.settings.mail_setting.mail');
 	}
+
 
 	public function mailSettingStore(Request $request)
 	{
@@ -295,4 +221,22 @@ class GeneralSettingController extends Controller
 		}
 		return redirect('/' . $zipFileName);
 	}
+
+
+
+
+
+    protected function test()
+    {
+        // Notification::route('mail', 'irfanchowdhury80@gmail.com')
+        // ->notify(new EmployeeLeaveNotification(
+        //     'Irfan Chowdhury',
+        //     '12',
+        //     '2023-04-19',
+        //     '2023-04-24',
+        //     'Test',
+        // ));
+        // return 'ok';
+    }
+
 }

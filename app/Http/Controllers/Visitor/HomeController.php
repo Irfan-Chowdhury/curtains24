@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Visitor;
 
+use App\Services\SettingService;
 
 class HomeController
 {
+    private $settingService;
+    public function __construct(SettingService $settingService)
+    {
+        $this->settingService = $settingService;
+    }
 
 	public function index()
 	{
-		return view('visitor.pages.index');
+        // $generalSetting = $this->settingService->getGeneralSettingData();
+
+
+        return view('visitor.pages.index');
 	}
 
     public function termsAndCondition()

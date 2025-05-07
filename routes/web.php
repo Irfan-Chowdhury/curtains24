@@ -138,9 +138,16 @@ use App\Http\Controllers\Variables\LoanTypeController;
 use Illuminate\Support\Facades\File;
 
 
+// Clients
+
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('visitorCommonData');
+Route::get('/terms-and-conditions', [HomeController::class, 'termsAndCondition'])->name('termsAndCondition');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacyPolicy');
+
+
+// Admin
+
 Auth::routes(['register' => false]);
-
-
 
 
 Route::prefix('addons')->group(function () {
@@ -179,11 +186,6 @@ Route::prefix('addons')->group(function () {
         });
     });
 });
-
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/terms-and-conditions', [HomeController::class, 'termsAndCondition'])->name('termsAndCondition');
-Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacyPolicy');
 
 
 Route::group(['middleware' => ['XSS','checkDataTable']], function ()  {

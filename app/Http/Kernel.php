@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
 		'admin' => \App\Http\Middleware\CheckAdmin::class,
 		'checkDataTable' => \App\Http\Middleware\CheckDataTable::class,
         'demoCheck' => \App\Http\Middleware\DemoCheck::class,
+        'visitorCommonData' => \App\Http\Middleware\VisitorCommonData::class,
     ];
 
 

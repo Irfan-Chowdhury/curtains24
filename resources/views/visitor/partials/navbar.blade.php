@@ -2,8 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <span>FNOMAD</span>
-                <span>CURTAINS</span>
+                <span>{{ $generalSetting->site_title }}</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
@@ -31,7 +30,7 @@
 
                 <div class="nav-right d-flex align-items-center ml-lg-4">
                     <a href="tel:+971524772085" class="phone-link">
-                        <i class="fas fa-phone-alt"></i> +971 52 477 2085
+                        <i class="fas fa-phone-alt"></i> {{ $generalSetting->phone }}
                     </a>
                     <button class="quote-btn">GET QUOTE</button>
                 </div>
