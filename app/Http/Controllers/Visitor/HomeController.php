@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Visitor;
 
 use App\Models\Hero;
 use App\Models\Module;
+use App\Models\PrivacyAndPolicy;
 use App\Models\TermAndCondition;
 use App\Services\BannerService;
 use App\Services\SettingService;
@@ -36,6 +37,8 @@ class HomeController
 
     public function privacyPolicy()
     {
-        return view('visitor.pages.privacy-policy');
+        $privacyAndPolicy = PrivacyAndPolicy::latest()->first();
+
+        return view('visitor.pages.privacy-policy', compact('privacyAndPolicy'));
     }
 }

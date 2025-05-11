@@ -9,12 +9,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header d-flex align-items-center">
-                            <h4>{{ __('Term and Conditions') }}</h4>
+                            <h4>{{ __('Privacy and Policy') }}</h4>
                         </div>
                         <div class="card-body">
                             <p class="italic">
                                 <small>{{ __('The field labels marked with * are required input fields') }}.</small></p>
-                            <form method="POST" action="{{ route('term-and-conditions.update') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('privacy-and-policy.update') }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="row">
@@ -22,7 +22,7 @@
                                         <div class="form-group">
                                             <label><strong>{{ __('Title') }} *</strong></label>
                                             <input required type="text" name="title" class="form-control"
-                                                value="{{ $termAndCondition->title ?? '' }}" />
+                                                value="{{ $privacyAndPolicy->title ?? '' }}" />
                                         </div>
                                         @error('title')
                                             <span>
@@ -34,7 +34,7 @@
                                         <div class="form-group">
                                             <label>{{trans('file.Description')}}</label>
                                             <textarea class="form-control des-editor" id="description" name="description" rows="5" cols="10">
-                                                {!! $termAndCondition->description !!}
+                                                {!! $privacyAndPolicy->description !!}
                                             </textarea>
                                         </div>
                                         @error('description')

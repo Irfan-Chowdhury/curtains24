@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ModuleController;
+use App\Http\Controllers\Admin\PrivacyAndPolicyController;
 use App\Http\Controllers\Admin\TermAndConditionController;
 use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,9 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
 
         Route::get('/term-and-conditions', [TermAndConditionController::class, 'index'])->name('term-and-conditions.index')->withoutMiddleware([XSS::class]);
         Route::post('/term-and-conditions/update', [TermAndConditionController::class, 'update'])->name('term-and-conditions.update')->withoutMiddleware([XSS::class]);
+
+        Route::get('/privacy-and-policy', [PrivacyAndPolicyController::class, 'index'])->name('privacy-and-policy.index')->withoutMiddleware([XSS::class]);
+        Route::post('/privacy-and-policy/update', [PrivacyAndPolicyController::class, 'update'])->name('privacy-and-policy.update')->withoutMiddleware([XSS::class]);
 
     });
 

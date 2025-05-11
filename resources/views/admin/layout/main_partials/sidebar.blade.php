@@ -55,6 +55,10 @@
                             class="dripicons-calendar"></i><span>{{__('Term and Conditions')}}</span></a>
                     </li>
 
+                    <li class="{{ (request()->is('privacy-and-policy')) ? 'active' : '' }}"><a
+                        href="{{route('privacy-and-policy.index')}}"> <i
+                            class="dripicons-calendar"></i><span>{{__('Privacy and Policy')}}</span></a>
+                    </li>
 
 
 

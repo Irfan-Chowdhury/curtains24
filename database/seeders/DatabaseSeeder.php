@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             BannerSeeder::class,
             ModuleSeeder::class,
             TermAndConditionSeeder::class,
+            PrivacyAndPolicySeeder::class,
         ]);
 
     }
