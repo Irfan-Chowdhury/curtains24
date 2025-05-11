@@ -2,8 +2,8 @@
 
 namespace App\Imports;
 
-use App\Models\Attendance;
-use App\Models\Employee;
+use App\Models\Old\Attendance;
+use App\Models\Old\Employee;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Contracts\Queue\ShouldQueue;

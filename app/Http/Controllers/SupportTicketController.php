@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\department;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\department;
+use App\Models\Old\Employee;
 use App\Notifications\TicketCreatedNotification;
 use App\Notifications\TicketUpdatedNotification;
-use App\Models\SupportTicket;
+use App\Models\Old\SupportTicket;
 use App\Models\User;
 use DB;
 use Exception;

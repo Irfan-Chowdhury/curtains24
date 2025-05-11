@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountListController;
 use App\Http\Controllers\AllUserController;
 use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\EmployeeSocialProfileController;
 use App\Http\Controllers\AssetController;
 use App\Http\Controllers\AssignRoleController;
@@ -52,6 +53,7 @@ use App\Http\Controllers\FinanceTransactionsController;
 use App\Http\Controllers\FinanceTransferController;
 use App\Http\Controllers\FrontEnd\AboutController;
 use App\Http\Controllers\FrontEnd\ContactController;
+use App\Http\Controllers\HeroController;
 use App\Http\Controllers\Visitor\HomeController;
 use App\Http\Controllers\FrontEnd\JobController;
 use App\Http\Controllers\GeneralSettingController;
@@ -150,6 +152,33 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('p
 Auth::routes(['register' => false]);
 
 
+Route::group(['middleware' => ['XSS']], function ()  {
+
+    Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    });
+
+    Route::prefix('settings')->group(function ()  {
+        Route::post('general_settings/update/{id}', [GeneralSettingController::class, 'update'])->name('general_settings.update');
+        Route::resource('general_settings', GeneralSettingController::class)->except(['create', 'edit', 'show', 'update']);
+    });
+    Route::get('/banners', [BannerController::class, 'index'])->name('banners.index');
+    Route::post('/banners/update', [BannerController::class, 'update'])->name('banners.update');
+
+    Route::get('/hero-section', [HeroController::class, 'index'])->name('hero-section.index');
+    Route::post('/hero-section/update', [HeroController::class, 'update'])->name('hero-section.update');
+});
+
+
+
+
+
+
+
+
+
+
+
 Route::prefix('addons')->group(function () {
 
     Route::get('/', function () {
@@ -186,6 +215,8 @@ Route::prefix('addons')->group(function () {
         });
     });
 });
+
+
 
 
 Route::group(['middleware' => ['XSS','checkDataTable']], function ()  {
@@ -227,9 +258,9 @@ Route::group(['middleware' => ['XSS','checkDataTable']], function ()  {
     });
 
     // if (!$isCrmModuleExist) {
-        Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
-            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        });
+        // Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'admin']], function () {
+        //     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // });
     // }
 
     Route::group(['prefix' => 'employee', 'as' => 'employee.', 'middleware' => ['auth']], function () {
@@ -828,8 +859,8 @@ Route::group(['middleware' => ['XSS','checkDataTable']], function ()  {
 
         Route::get('roles/permission_details/{id}', [PermissionController::class, 'permissionDetails'])->name('permissionDetails');
         Route::post('roles/permission', [PermissionController::class, 'set_permission'])->name('set_permission');
-        Route::post('general_settings/update/{id}', [GeneralSettingController::class, 'update'])->name('general_settings.update');
-        Route::resource('general_settings', GeneralSettingController::class)->except(['create', 'edit', 'show', 'update']);
+        // Route::post('general_settings/update/{id}', [GeneralSettingController::class, 'update'])->name('general_settings.update');
+        // Route::resource('general_settings', GeneralSettingController::class)->except(['create', 'edit', 'show', 'update']);
         Route::get('mail_setting', [GeneralSettingController::class, 'mailSetting'])->name('setting.mail');
         Route::post('setting/mail_setting_store', [GeneralSettingController::class, 'mailSettingStore'])->name('setting.mailStore');
         Route::get('general_settings/change-theme/{theme}', [GeneralSettingController::class, 'change_theme'])->name('change_theme');

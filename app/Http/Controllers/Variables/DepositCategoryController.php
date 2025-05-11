@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Variables;
 
 use App\Http\Controllers\Controller;
-use App\Models\DepositCategory;
+use App\Models\Old\DepositCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

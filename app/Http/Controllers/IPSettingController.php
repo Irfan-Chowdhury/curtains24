@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\IpSetting;
+use App\Models\Old\IpSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;

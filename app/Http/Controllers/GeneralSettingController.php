@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
+use App\Models\Old\Employee;
 use App\Http\traits\ENVFilePutContent;
 use App\Http\traits\ImageHandleTrait;
-use App\Models\FinanceBankCash;
+use App\Models\Old\FinanceBankCash;
 use App\Models\GeneralSetting;
-use App\Models\LeaveType;
+use App\Models\Old\LeaveType;
 use App\Notifications\EmployeeLeaveNotification;
 use App\Models\User;
 use App\Services\SettingService;

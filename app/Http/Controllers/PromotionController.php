@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
 use App\Notifications\EmployeePromotion;
-use App\Models\Promotion;
+use App\Models\Old\Promotion;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

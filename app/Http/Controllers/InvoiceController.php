@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invoice;
-use App\Models\InvoiceItem;
+use App\Models\Old\Invoice;
+use App\Models\Old\InvoiceItem;
 use App\Notifications\InvoicePaidNotification;
 use App\Notifications\InvoiceReceivedNotification;
-use App\Models\Project;
-use App\Models\TaxType;
+use App\Models\Old\Project;
+use App\Models\Old\TaxType;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;

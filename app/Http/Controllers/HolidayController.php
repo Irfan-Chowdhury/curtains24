@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Holiday;
+use App\Models\Old\company;
+use App\Models\Old\Holiday;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;

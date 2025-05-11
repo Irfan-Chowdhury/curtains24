@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invoice;
+use App\Models\Old\Invoice;
 
 class ClientInvoiceController extends Controller
 {

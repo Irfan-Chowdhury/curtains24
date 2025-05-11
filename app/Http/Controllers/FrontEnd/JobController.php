@@ -4,9 +4,9 @@
 namespace App\Http\Controllers\FrontEnd;
 
 
-use App\Models\JobCandidate;
-use App\Models\JobCategory;
-use App\Models\JobPost;
+use App\Models\Old\JobCandidate;
+use App\Models\Old\JobCategory;
+use App\Models\Old\JobPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;

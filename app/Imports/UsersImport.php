@@ -2,13 +2,13 @@
 
 namespace App\Imports;
 
-use App\Models\Employee;
+use App\Models\Old\Employee;
 use App\Models\User;
-use App\Models\company;
-use App\Models\department;
-use App\Models\designation;
+use App\Models\Old\company;
+use App\Models\Old\department;
+use App\Models\Old\designation;
 use App\Models\Country;
-use App\Models\office_shift;
+use App\Models\Old\office_shift;
 use Spatie\Permission\Models\Role;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Hash;

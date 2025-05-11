@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Variables;
 
-use App\Models\FileManagerSetting;
+use App\Models\Old\FileManagerSetting;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

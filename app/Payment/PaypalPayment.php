@@ -3,7 +3,7 @@
 namespace App\Payment;
 
 use App\Contracts\PaybleContract;
-use App\Models\Landlord\Payment;
+use App\Models\Old\Landlord\Payment;
 
 class PaypalPayment implements PaybleContract
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Variables;
 
 use App\Http\Controllers\Controller;
-use App\Models\CompanyType;
-use App\Models\RelationType;
+use App\Models\Old\CompanyType;
+use App\Models\Old\RelationType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

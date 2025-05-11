@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FinanceBankCash;
-use App\Models\FinanceTransaction;
+use App\Models\Old\FinanceBankCash;
+use App\Models\Old\FinanceTransaction;
 
 
 class FinanceTransactionsController extends Controller {

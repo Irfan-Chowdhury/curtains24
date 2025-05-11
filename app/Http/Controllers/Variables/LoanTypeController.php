@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Variables;
 
 use App\Http\Controllers\Controller;
-use App\Models\LoanType;
+use App\Models\Old\LoanType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

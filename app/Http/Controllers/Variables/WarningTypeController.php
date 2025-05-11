@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers\Variables;
 
-use App\Models\WarningType;
+use App\Models\Old\WarningType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

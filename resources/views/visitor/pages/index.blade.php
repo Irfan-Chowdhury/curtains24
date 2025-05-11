@@ -9,24 +9,24 @@
 
                 <!-- Images -->
                 <div class="col-md-4 d-flex flex-wrap">
-                    <img src="https://static.wixstatic.com/media/e01eb4_ac5ed8a5a25b4540bcb51a8eeadee781f000.jpg/v1/fill/w_314,h_392,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/e01eb4_ac5ed8a5a25b4540bcb51a8eeadee781f000.jpg" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
-                    <!-- <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" class="img-fluid mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Curtains"> -->
+                    {{-- <img src="https://static.wixstatic.com/media/e01eb4_ac5ed8a5a25b4540bcb51a8eeadee781f000.jpg/v1/fill/w_314,h_392,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/e01eb4_ac5ed8a5a25b4540bcb51a8eeadee781f000.jpg" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow"> --}}
+                    <img src="{{ $banner->banner_image_1 }}" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
                 </div>
                 <!-- Images -->
                 <div class="col-md-4 d-flex flex-wrap">
-                    <img src="https://static.wixstatic.com/media/e01eb4_79aac579b5ca4f078272fe9f421a57b3~mv2.png/v1/crop/x_0,y_182,w_4284,h_5348/fill/w_377,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_1085_HEIC.png" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
-                    <!-- <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" class="img-fluid mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Curtains"> -->
+                    {{-- <img src="https://static.wixstatic.com/media/e01eb4_79aac579b5ca4f078272fe9f421a57b3~mv2.png/v1/crop/x_0,y_182,w_4284,h_5348/fill/w_377,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_1085_HEIC.png" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow"> --}}
+                    <img src="{{ $banner->banner_image_2 }}" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
                 </div>
 
                 <!-- Text & Buttons -->
                 <div class="col-md-4 position-relative mt-4 mt-md-0">
                     <!-- Faded Background Text -->
-                    <!-- style="font-family:helvetica-w01-bold,helvetica-w02-bold,helvetica-lt-w10-bold,sans-serif;" -->
                     <h1 class="font-helvetica position-absolute text-uppercase" style="color: rgba(0,0,0,0.05); font-size: 150px; top: -100px; left: 0; z-index: 0; line-height: 1;"><strong>Save<br>Time</strong></h1>
 
                     <!-- Foreground Content -->
                     <div class="position-relative" style="z-index: 1; top:110px">
-                        <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">TAILORED CURTAINS<br>IN 24 HOURS</h1>
+                        {{-- <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">TAILORED CURTAINS<br>IN 24 HOURS</h1> --}}
+                        <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">{{ $banner->title }}</h1>
 
                         <button class="btn btn-dark btn-block mb-3" style="padding: 12px 0;">BOOK FREE MEASUREMENTS</button>
                         <button class="btn btn-outline-dark btn-block" style="padding: 12px 0;">ONLINE CALCULATOR</button>
@@ -41,14 +41,15 @@
     <!-- Perfect Curtains Section -->
     <section class="py-5">
         <div class="container text-center">
-            <h2 class="font-helvetica mb-5 font-weight-bold">HAVE YOUR PERFECT CURTAINS WITHOUT LIFTING A FINGER</h2>
+            {{-- <h2 class="font-helvetica mb-5 font-weight-bold">HAVE YOUR PERFECT CURTAINS WITHOUT LIFTING A FINGER</h2> --}}
+            <h2 class="font-helvetica mb-5 font-weight-bold">{{  $hero->heading }}</h2>
             <div class="row justify-content-center">
 
                 <!-- Step 1 -->
                 <div class="col-md-4 mb-4 font-helvetica">
                     <h1 style="color: rgba(0,0,0,0.05); font-size: 100px; font-weight: bold;">01</h1>
-                    <h5 class="font-weight-bold mb-3">BOOK FREE MEASUREMENTS</h5>
-                    <p>Our team will come to you shortly.</p>
+                    <h5 class="font-weight-bold mb-3">{{  $hero->title_1 }}</h5>
+                    <p>{{  $hero->description_1 }}</p>
 
                     <div class="d-flex justify-content-center mt-4">
                         <button class="btn btn-dark mr-2" style="min-width: 180px;">BOOK NOW</button>
@@ -59,10 +60,10 @@
                 <!-- Step 2 -->
                 <div class="col-md-4 mb-4 font-helvetica">
                     <h1 style="color: rgba(0,0,0,0.05); font-size: 100px; font-weight: bold;">02</h1>
-                    <h5 class="font-weight-bold mb-3">MEET WITH OUR EXPERT</h5>
+                    <h5 class="font-weight-bold mb-3">{{  $hero->title_2 }}</h5>
                     <p>
-                        Choose the fabric and color, while<br>
-                        our expert takes measurements.<br>
+                        {{ $hero->description_2 }}
+                        <br>
                         <strong>We speak ENG & RUS.</strong>
                     </p>
                 </div>
@@ -70,10 +71,10 @@
                 <!-- Step 3 -->
                 <div class="col-md-4 mb-4 font-helvetica">
                     <h1 style="color: rgba(0,0,0,0.05); font-size: 100px; font-weight: bold;">03</h1>
-                    <h5 class="font-weight-bold mb-3">CURTAINS ARE READY</h5>
+                    <h5 class="font-weight-bold mb-3">{{  $hero->title_3 }}</h5>
                     <p>
-                        24 hours from measurements<br>
-                        to installation.
+                        {{ $hero->description_3 }}
+                        
                     </p>
                     <p class="mt-3">
                         <a href="#" class="font-weight-bold text-dark" style="text-decoration: underline;">HOW IT LOOKS</a>

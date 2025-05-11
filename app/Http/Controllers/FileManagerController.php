@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\department;
-use App\Models\FileManager;
-use App\Models\FileManagerSetting;
+use App\Models\Old\department;
+use App\Models\Old\FileManager;
+use App\Models\Old\FileManagerSetting;
 
 use Illuminate\Http\Request;
 

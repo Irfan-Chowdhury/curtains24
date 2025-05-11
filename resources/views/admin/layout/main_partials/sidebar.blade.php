@@ -29,23 +29,28 @@
                             <a href="#Customize_settings" aria-expanded="false" data-toggle="collapse">
                                 <i class="dripicons-toggles"></i><span>{{__('Setting')}}</span>
                             </a>
-
-                        <ul id="Customize_settings" class="collapse list-unstyled ">
-
-                                <li id="general_settings"><a
-                                            href="{{route('general_settings.index')}}">{{__('General Settings')}}</a>
-                                </li>
-
-                            @can('view-mail-setting')
-                                <li id="mail_setting"><a
-                                            href="{{route('setting.mail')}}">{{__('Mail Setting')}}</a>
-                                </li>
-                            @endcan
-
-
-
-                        </ul>
+                            <ul id="Customize_settings" class="collapse list-unstyled ">
+                                <li id="general_settings"><a href="{{route('general_settings.index')}}">{{__('General Settings')}}</a></li>
+                                <li id="mail_setting"><a href="{{route('setting.mail')}}">{{__('Mail Setting')}}</a></li>
+                            </ul>
                     </li>
+
+
+                    <li class="{{ (request()->is('banners')) ? 'active' : '' }}"><a
+                        href="{{route('banners.index')}}"> <i
+                            class="dripicons-calendar"></i><span>{{__('Banner')}}</span></a>
+                    </li>
+
+
+                    <li class="{{ (request()->is('hero-section')) ? 'active' : '' }}"><a
+                        href="{{route('hero-section.index')}}"> <i
+                            class="dripicons-calendar"></i><span>{{__('Hero Section')}}</span></a>
+                    </li>
+
+
+
+
+
 
 
 

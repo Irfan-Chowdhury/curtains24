@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Variables ;
 use App\Http\Controllers\Controller;
-use App\Models\DocumentType;
+use App\Models\Old\DocumentType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

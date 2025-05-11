@@ -2,22 +2,28 @@
 
 namespace App\Http\Controllers\Visitor;
 
+use App\Models\Hero;
+use App\Services\BannerService;
 use App\Services\SettingService;
 
 class HomeController
 {
     private $settingService;
-    public function __construct(SettingService $settingService)
+    private $bannerService;
+    public function __construct(SettingService $settingService, BannerService $bannerService)
     {
         $this->settingService = $settingService;
+        $this->bannerService = $bannerService;
     }
 
 	public function index()
 	{
         // $generalSetting = $this->settingService->getGeneralSettingData();
+        $banner = $this->bannerService->getBannerData();
+        $hero = Hero::first();
 
 
-        return view('visitor.pages.index');
+        return view('visitor.pages.index', compact('banner','hero'));
 	}
 
     public function termsAndCondition()

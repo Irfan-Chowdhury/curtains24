@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Employee;
-use App\Models\EmployeeLeaveTypeDetail;
-use App\Models\Payslip;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
+use App\Models\Old\EmployeeLeaveTypeDetail;
+use App\Models\Old\Payslip;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use App\Http\traits\MonthlyWorkedHours;
 use Illuminate\Http\Request;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Warning;
+use App\Models\Old\Warning;
 
 class EmployeeWarningController extends Controller {
 

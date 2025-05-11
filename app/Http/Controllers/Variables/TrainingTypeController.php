@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\Variables;
 
 
-use App\Models\TrainingType;
+use App\Models\Old\TrainingType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

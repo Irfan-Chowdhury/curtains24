@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\FrontEnd;
 
 
-use App\Models\CMS;
+use App\Models\Old\CMS;
 
 class HomeController {
 

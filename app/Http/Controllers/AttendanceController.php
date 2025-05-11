@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attendance;
-use App\Models\company;
-use App\Models\Employee;
-use App\Models\Holiday;
+use App\Models\Old\Attendance;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
+use App\Models\Old\Holiday;
 use App\Imports\AttendancesImport;
 use App\Imports\AttendancesImportDevice;
 use Carbon\Carbon;

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
-use App\Models\Project;
-use App\Models\ProjectDiscussion;
+use App\Models\Old\Employee;
+use App\Models\Old\Project;
+use App\Models\Old\ProjectDiscussion;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

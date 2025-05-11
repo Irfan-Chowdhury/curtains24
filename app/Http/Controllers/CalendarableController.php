@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Client;
-use App\Models\company;
+use App\Models\Old\Client;
+use App\Models\Old\company;
 use App\Http\traits\CalendarableModelTrait;
-use App\Models\LeaveType;
-use App\Models\Project;
-use App\Models\Trainer;
-use App\Models\TrainingType;
-use App\Models\TravelType;
+use App\Models\Old\LeaveType;
+use App\Models\Old\Project;
+use App\Models\Old\Trainer;
+use App\Models\Old\TrainingType;
+use App\Models\Old\TravelType;
 use DateTime;
 
 class CalendarableController extends Controller {

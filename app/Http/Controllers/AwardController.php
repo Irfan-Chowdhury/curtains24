@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Award;
-use App\Models\AwardType;
-use App\Models\company;
-use App\Models\department;
-use App\Models\Employee;
+use App\Models\Old\Award;
+use App\Models\Old\AwardType;
+use App\Models\Old\company;
+use App\Models\Old\department;
+use App\Models\Old\Employee;
 use App\Notifications\EmployeeAwardNotify;
 use App\Models\User;
 use Illuminate\Http\Request;

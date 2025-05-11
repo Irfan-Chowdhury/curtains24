@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Models\department;
-use App\Models\EmployeeImmigration;
+use App\Models\Old\department;
+use App\Models\Old\EmployeeImmigration;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Notification;
-use App\Models\Employee;
+use App\Models\Old\Employee;
 use App\Models\User;
 use App\Notifications\EmployeeImmigrationExpiryNotify;
 use App\Notifications\EmployeeImmigrationExpiryNotifyToAdmin;

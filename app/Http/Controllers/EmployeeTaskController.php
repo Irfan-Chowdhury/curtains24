@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Models\Old\Task;
 
 class EmployeeTaskController extends Controller {
 

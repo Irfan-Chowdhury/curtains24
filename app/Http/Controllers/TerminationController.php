@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
 use App\Notifications\EmployeeTerminationNotify;
-use App\Models\Termination;
-use App\Models\TerminationType;
+use App\Models\Old\Termination;
+use App\Models\Old\TerminationType;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;

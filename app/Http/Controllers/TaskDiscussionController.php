@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
-use App\Models\Task;
-use App\Models\TaskDiscussion;
+use App\Models\Old\Employee;
+use App\Models\Old\Task;
+use App\Models\Old\TaskDiscussion;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

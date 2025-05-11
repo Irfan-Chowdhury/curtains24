@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Employee;
-use App\Models\Meeting;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
+use App\Models\Old\Meeting;
 use App\Notifications\EventNotify;
 use App\Notifications\MeetingNotify;
 use App\Models\User;

@@ -3,7 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\DocumentExpiryReminder;
-use App\Models\EmployeeDocument;
+use App\Models\Old\EmployeeDocument;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 

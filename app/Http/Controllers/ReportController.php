@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Employee;
-use App\Models\ExpenseType;
-use App\Models\FinanceBankCash;
-use App\Models\FinanceDeposit;
-use App\Models\FinanceExpense;
-use App\Models\FinanceTransaction;
-use App\Models\Project;
-use App\Models\Task;
-use App\Models\Payslip;
-use App\Models\TrainingList;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
+use App\Models\Old\ExpenseType;
+use App\Models\Old\FinanceBankCash;
+use App\Models\Old\FinanceDeposit;
+use App\Models\Old\FinanceExpense;
+use App\Models\Old\FinanceTransaction;
+use App\Models\Old\Project;
+use App\Models\Old\Task;
+use App\Models\Old\Payslip;
+use App\Models\Old\TrainingList;
 use Carbon\Carbon;
 use DateInterval;
 use DatePeriod;

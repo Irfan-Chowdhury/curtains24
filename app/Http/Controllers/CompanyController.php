@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\CompanyType;
-use App\Models\location;
+use App\Models\Old\company;
+use App\Models\Old\CompanyType;
+use App\Models\Old\location;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Project;
-use App\Models\Task;
+use App\Models\Old\company;
+use App\Models\Old\Project;
+use App\Models\Old\Task;
 use DB;
 use Exception;
 use Illuminate\Http\Request;

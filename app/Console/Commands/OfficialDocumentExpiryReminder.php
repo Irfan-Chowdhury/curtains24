@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 
 use App\Notifications\OfficialDocumentExpiry;
-use App\Models\OfficialDocument;
+use App\Models\Old\OfficialDocument;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Notification;
 use App\Models\User;

@@ -2,39 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
-use App\Models\Attendance;
-use App\Models\Award;
+use App\Models\Old\Announcement;
+use App\Models\Old\Attendance;
+use App\Models\Old\Award;
 use App\Models\GeneralSetting;
-use App\Models\Client;
-use App\Models\company;
-use App\Models\DocumentType;
-use App\Models\Employee;
-use App\Models\EmployeeProject;
-use App\Models\EmployeeTask;
-use App\Models\EmployeeTicket;
-use App\Models\EmployeeWorkExperience;
-use App\Models\FinanceDeposit;
-use App\Models\FinanceExpense;
-use App\Models\Holiday;
+use App\Models\Old\Client;
+use App\Models\Old\company;
+use App\Models\Old\DocumentType;
+use App\Models\Old\Employee;
+use App\Models\Old\EmployeeProject;
+use App\Models\Old\EmployeeTask;
+use App\Models\Old\EmployeeTicket;
+use App\Models\Old\EmployeeWorkExperience;
+use App\Models\Old\FinanceDeposit;
+use App\Models\Old\FinanceExpense;
+use App\Models\Old\Holiday;
 use App\Http\traits\AutoUpdateTrait;
 use App\Http\traits\CalendarableModelTrait;
 use App\Http\traits\ShiftTimingOnDay;
-use App\Models\Invoice;
-use App\Models\IpSetting;
-use App\Models\leave;
-use App\Models\LeaveType;
-use App\Models\Payslip;
-use App\Models\Project;
-use App\Models\QualificationEducationLevel;
-use App\Models\QualificationLanguage;
-use App\Models\QualificationSkill;
-use App\Models\SalaryBasic;
-use App\Models\status;
-use App\Models\SupportTicket;
-use App\Models\Trainer;
-use App\Models\TrainingType;
-use App\Models\TravelType;
+use App\Models\Old\Invoice;
+use App\Models\Old\IpSetting;
+use App\Models\Old\leave;
+use App\Models\Old\LeaveType;
+use App\Models\Old\Payslip;
+use App\Models\Old\Project;
+use App\Models\Old\QualificationEducationLevel;
+use App\Models\Old\QualificationLanguage;
+use App\Models\Old\QualificationSkill;
+use App\Models\Old\SalaryBasic;
+use App\Models\Old\status;
+use App\Models\Old\SupportTicket;
+use App\Models\Old\Trainer;
+use App\Models\Old\TrainingType;
+use App\Models\Old\TravelType;
 use App\Models\User;
 use Carbon\Carbon;
 use Exception;
@@ -58,8 +58,12 @@ class DashboardController extends Controller {
 
 	public function index()
 	{
-        $autoUpdateData = $this->general();
-        $alertVersionUpgradeEnable = $autoUpdateData['alertVersionUpgradeEnable'];
+
+        return view('admin.dashboard.admin_dashboard');
+
+        // $autoUpdateData = $this->general();
+        // $alertVersionUpgradeEnable = $autoUpdateData['alertVersionUpgradeEnable'];
+        $alertVersionUpgradeEnable = null;//$autoUpdateData['alertVersionUpgradeEnable'];
 
 		$employees = Employee::with('department:id,department_name', 'designation:id,designation_name')
 			->select('id', 'department_id', 'designation_id', 'is_active')

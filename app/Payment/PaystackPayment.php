@@ -4,8 +4,8 @@
 namespace App\Payment;
 
 use App\Contracts\PaybleContract;
-use App\Models\Landlord\Payment;
-use App\Models\Tenant;
+use App\Models\Old\Landlord\Payment;
+use App\Models\Old\Tenant;
 use Exception;
 use Illuminate\Support\Facades\Session;
 

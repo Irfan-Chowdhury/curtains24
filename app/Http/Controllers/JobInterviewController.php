@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
-use App\Models\JobCandidate;
-use App\Models\JobInterview;
-use App\Models\JobPost;
+use App\Models\Old\Employee;
+use App\Models\Old\JobCandidate;
+use App\Models\Old\JobInterview;
+use App\Models\Old\JobPost;
 use App\Notifications\InterviewHostNotification;
 use App\Notifications\JobInterviewNotification;
 use App\Models\User;

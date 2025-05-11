@@ -3,10 +3,10 @@
 
 namespace App\Http\Controllers\Variables;
 
-use App\Models\Employee;
-use App\Models\EmployeeLeaveTypeDetail;
+use App\Models\Old\Employee;
+use App\Models\Old\EmployeeLeaveTypeDetail;
 use App\Http\traits\LeaveTypeDataManageTrait;
-use App\Models\LeaveType;
+use App\Models\Old\LeaveType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

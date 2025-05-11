@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FinanceBankCash;
+use App\Models\Old\FinanceBankCash;
 use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

@@ -3,7 +3,7 @@
 
 namespace App\Imports;
 
-use App\Models\Employee;
+use App\Models\Old\Employee;
 use App\Models\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Collection;

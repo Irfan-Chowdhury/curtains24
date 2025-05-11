@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\department;
-use App\Models\designation;
-use App\Models\Employee;
-use App\Models\FinanceBankCash;
-use App\Models\JobCandidate;
-use App\Models\office_shift;
-use App\Models\SupportTicket;
-use App\Models\TaxType;
+use App\Models\Old\department;
+use App\Models\Old\designation;
+use App\Models\Old\Employee;
+use App\Models\Old\FinanceBankCash;
+use App\Models\Old\JobCandidate;
+use App\Models\Old\office_shift;
+use App\Models\Old\SupportTicket;
+use App\Models\Old\TaxType;
 use Illuminate\Http\Request;
 
 class DynamicDependent extends Controller {
@@ -47,7 +47,7 @@ class DynamicDependent extends Controller {
 		$value = $request->get('value');
 		$first_name = $request->get('first_name');
 		$last_name = $request->get('last_name');
-        
+
 		$data = Employee::whereCompany_id($value)
                             ->where('is_active',1)
                             ->where('exit_date',NULL)

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\DeductionType;
-use App\Models\department;
-use App\Models\designation;
-use App\Models\DocumentType;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\DeductionType;
+use App\Models\Old\department;
+use App\Models\Old\designation;
+use App\Models\Old\DocumentType;
+use App\Models\Old\Employee;
 use App\Http\traits\LeaveTypeDataManageTrait;
 use App\Imports\UsersImport;
-use App\Models\LoanType;
-use App\Models\office_shift;
-use App\Models\QualificationEducationLevel;
-use App\Models\QualificationLanguage;
-use App\Models\QualificationSkill;
-use App\Models\RelationType;
-use App\Models\status;
+use App\Models\Old\LoanType;
+use App\Models\Old\office_shift;
+use App\Models\Old\QualificationEducationLevel;
+use App\Models\Old\QualificationLanguage;
+use App\Models\Old\QualificationSkill;
+use App\Models\Old\RelationType;
+use App\Models\Old\status;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Exception;

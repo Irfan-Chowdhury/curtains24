@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\company;
+use App\Models\Old\Client;
+use App\Models\Old\company;
 use App\Notifications\ProjectCreatedNotifiaction;
 use App\Notifications\ProjectUpdatedNotification;
-use App\Models\Project;
+use App\Models\Old\Project;
 use App\Models\User;
 use DB;
 use Exception;

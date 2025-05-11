@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Performance;
 
-use App\Models\company;
-use App\Models\GoalTracking;
-use App\Models\GoalType;
+use App\Models\Old\company;
+use App\Models\Old\GoalTracking;
+use App\Models\Old\GoalType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

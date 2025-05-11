@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Award;
+use App\Models\Old\Award;
 
 class EmployeeAwardController extends Controller {
 

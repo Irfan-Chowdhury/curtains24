@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Employee;
+use App\Models\Old\Employee;
 
 class AssignRoleController extends Controller {
 

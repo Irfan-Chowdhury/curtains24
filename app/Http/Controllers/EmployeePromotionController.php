@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Promotion;
+use App\Models\Old\Promotion;
 
 class EmployeePromotionController extends Controller {
 

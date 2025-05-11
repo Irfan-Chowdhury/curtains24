@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AboutInfo;
-use App\Models\CMS;
+use App\Models\Old\CMS;
 use Illuminate\Http\Request;
 
 

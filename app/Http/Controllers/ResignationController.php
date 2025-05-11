@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\department;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\department;
+use App\Models\Old\Employee;
 use App\Notifications\EmployeeResignationNotify;
-use App\Models\Resignation;
+use App\Models\Old\Resignation;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;

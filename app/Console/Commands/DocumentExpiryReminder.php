@@ -3,9 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
-use App\Models\Employee;
-use App\Models\department;
-use App\Models\EmployeeDocument;
+use App\Models\Old\Employee;
+use App\Models\Old\department;
+use App\Models\Old\EmployeeDocument;
 use App\Notifications\DocumentExpiry;
 use App\Notifications\EmployeeDocumentExpiryNotifyToAdmin;
 use App\Notifications\EmployeeDocumentExpiryNotifyToDeptartmentHead;

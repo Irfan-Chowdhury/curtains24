@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DepositCategory;
-use App\Models\FinanceBankCash;
-use App\Models\FinanceDeposit;
-use App\Models\FinancePayers;
-use App\Models\FinanceTransaction;
-use App\Models\PaymentMethod;
+use App\Models\Old\DepositCategory;
+use App\Models\Old\FinanceBankCash;
+use App\Models\Old\FinanceDeposit;
+use App\Models\Old\FinancePayers;
+use App\Models\Old\FinanceTransaction;
+use App\Models\Old\PaymentMethod;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

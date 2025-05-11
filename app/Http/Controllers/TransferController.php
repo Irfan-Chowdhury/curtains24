@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\department;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\department;
+use App\Models\Old\Employee;
 use App\Notifications\EmployeeTransferNotify;
-use App\Models\Transfer;
+use App\Models\Old\Transfer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

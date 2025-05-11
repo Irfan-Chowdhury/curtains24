@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Performance;
 
-use App\Models\Appraisal;
+use App\Models\Old\Appraisal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\company;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\Employee;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 

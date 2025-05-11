@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\Variables;
 
 
-use App\Models\TravelType;
+use App\Models\Old\TravelType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

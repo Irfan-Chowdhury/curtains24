@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\company;
-use App\Models\Complaint;
-use App\Models\Employee;
+use App\Models\Old\company;
+use App\Models\Old\Complaint;
+use App\Models\Old\Employee;
 use App\Notifications\ComplainAgainstNotify;
 use App\Notifications\ComplaintFromNotify;
 use App\Models\User;
