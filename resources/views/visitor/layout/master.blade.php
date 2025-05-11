@@ -13,10 +13,11 @@
     {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
     <link rel="stylesheet" href="{{ asset('assets_visitor/css/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+    @stack('visitor-css')
 </head>
 
 <body>
+
 
     @include('visitor.partials.navbar')
 
@@ -82,6 +83,8 @@
             }
         });
     </script>
+
+    @stack('visitor-scripts')
 
 </body>
 

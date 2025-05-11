@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ModuleController;
+use App\Http\Controllers\Admin\TermAndConditionController;
+use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -14,6 +16,7 @@ Auth::routes(['register' => false]);
 
 
 Route::group(['middleware' => ['XSS','auth']], function ()  {
+// Route::group(['middleware' => ['auth']], function ()  {
 
     Route::prefix('admin')->group(function () {
 
@@ -23,6 +26,7 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
 
         Route::get('/banners', [BannerController::class, 'index'])->name('banners.index');
         Route::post('/banners/update', [BannerController::class, 'update'])->name('banners.update');
+
 
         Route::get('/hero-section', [HeroController::class, 'index'])->name('hero-section.index');
         Route::post('/hero-section/update', [HeroController::class, 'update'])->name('hero-section.update');
@@ -34,6 +38,9 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
 
         Route::get('/modules', [ModuleController::class, 'index'])->name('modules.index');
         Route::post('/modules/update', [ModuleController::class, 'update'])->name('modules.update');
+
+        Route::get('/term-and-conditions', [TermAndConditionController::class, 'index'])->name('term-and-conditions.index')->withoutMiddleware([XSS::class]);
+        Route::post('/term-and-conditions/update', [TermAndConditionController::class, 'update'])->name('term-and-conditions.update')->withoutMiddleware([XSS::class]);
 
     });
 

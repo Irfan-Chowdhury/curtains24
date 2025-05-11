@@ -41,7 +41,7 @@
 
 
             <div class="d-flex justify-content-center small-links mt-3">
-                <a href="#">Terms & Conditions</a>
+                <a href="{{ route('termsAndCondition') }}">Terms & Conditions</a>
                 <a href="#">Privacy Policy</a>
             </div>
         </div>

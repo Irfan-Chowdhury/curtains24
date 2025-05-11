@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Visitor;
 
 use App\Models\Hero;
 use App\Models\Module;
+use App\Models\TermAndCondition;
 use App\Services\BannerService;
 use App\Services\SettingService;
 
@@ -28,7 +29,9 @@ class HomeController
 
     public function termsAndCondition()
     {
-        return view('visitor.pages.terms-and-condition');
+        $termAndCondition = TermAndCondition::latest()->first();
+
+        return view('visitor.pages.terms-and-condition', compact('termAndCondition'));
     }
 
     public function privacyPolicy()

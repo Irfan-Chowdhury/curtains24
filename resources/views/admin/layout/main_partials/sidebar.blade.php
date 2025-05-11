@@ -50,6 +50,11 @@
                             class="dripicons-calendar"></i><span>{{__('Modules')}}</span></a>
                     </li>
 
+                    <li class="{{ (request()->is('term-and-conditions')) ? 'active' : '' }}"><a
+                        href="{{route('term-and-conditions.index')}}"> <i
+                            class="dripicons-calendar"></i><span>{{__('Term and Conditions')}}</span></a>
+                    </li>
+
 
 
 
