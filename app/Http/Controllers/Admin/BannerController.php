@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Services\BannerService;
 use Exception;
@@ -24,7 +25,7 @@ class BannerController extends Controller
 
         $banner = $this->bannerService->getBannerData();
 
-        return view('admin.banners.index', compact('banner'));
+        return view('admin.pages.banners.index', compact('banner'));
     }
 
 

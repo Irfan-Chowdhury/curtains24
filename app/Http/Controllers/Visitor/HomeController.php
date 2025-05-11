@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Visitor;
 
 use App\Models\Hero;
+use App\Models\Module;
 use App\Services\BannerService;
 use App\Services\SettingService;
 
@@ -18,12 +19,11 @@ class HomeController
 
 	public function index()
 	{
-        // $generalSetting = $this->settingService->getGeneralSettingData();
         $banner = $this->bannerService->getBannerData();
         $hero = Hero::first();
+        $module = Module::latest()->first();
 
-
-        return view('visitor.pages.index', compact('banner','hero'));
+        return view('visitor.pages.index', compact('banner','hero','module'));
 	}
 
     public function termsAndCondition()

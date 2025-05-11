@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Old\Employee;
 use App\Http\traits\ENVFilePutContent;
 use App\Http\traits\ImageHandleTrait;

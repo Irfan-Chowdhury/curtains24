@@ -24,8 +24,6 @@
 
 
                     <li class="has-dropdown {{ (request()->is('settings*')) ? 'active' : '' }}">
-
-
                             <a href="#Customize_settings" aria-expanded="false" data-toggle="collapse">
                                 <i class="dripicons-toggles"></i><span>{{__('Setting')}}</span>
                             </a>
@@ -45,6 +43,11 @@
                     <li class="{{ (request()->is('hero-section')) ? 'active' : '' }}"><a
                         href="{{route('hero-section.index')}}"> <i
                             class="dripicons-calendar"></i><span>{{__('Hero Section')}}</span></a>
+                    </li>
+
+                    <li class="{{ (request()->is('modules')) ? 'active' : '' }}"><a
+                        href="{{route('modules.index')}}"> <i
+                            class="dripicons-calendar"></i><span>{{__('Modules')}}</span></a>
                     </li>
 
 

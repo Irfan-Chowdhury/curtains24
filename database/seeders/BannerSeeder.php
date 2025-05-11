@@ -9,6 +9,8 @@ use Illuminate\Database\Seeder;
 class BannerSeeder extends Seeder
 {
 
+    // php artisan db:seed --class=BannerSeeder
+
     public function run(): void
     {
         // Banner::truncate();

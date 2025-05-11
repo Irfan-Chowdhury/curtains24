@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Old\Announcement;
 use App\Models\Old\Attendance;
 use App\Models\Old\Award;

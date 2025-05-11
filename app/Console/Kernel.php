@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
 		Commands\DocumentExpiryReminder::class,
         Commands\OfficialDocumentExpiryReminder::class,
         Commands\EmployeeImmigrationExpiryReminder::class,
+        Commands\MakeService::class,
 
 	];
 

@@ -74,7 +74,7 @@
                     <h5 class="font-weight-bold mb-3">{{  $hero->title_3 }}</h5>
                     <p>
                         {{ $hero->description_3 }}
-                        
+
                     </p>
                     <p class="mt-3">
                         <a href="#" class="font-weight-bold text-dark" style="text-decoration: underline;">HOW IT LOOKS</a>
@@ -92,15 +92,18 @@
             <div class="row text-center text-white">
 
                 <div class="col-md-4 mb-2 mb-md-0">
-                    HUGE FABRIC RANGE
+                    {{-- HUGE FABRIC RANGE --}}
+                    {!! strip_tags(htmlspecialchars_decode($module->title_1)) !!}
                 </div>
 
                 <div class="col-md-4 mb-2 mb-md-0">
-                    CLEAR PRICE
+                    {{-- CLEAR PRICE --}}
+                    {!! strip_tags(htmlspecialchars_decode($module->title_2)) !!}
                 </div>
 
                 <div class="col-md-4">
-                    FAST SERVICE
+                    {{-- FAST SERVICE --}}
+                    {!! strip_tags(htmlspecialchars_decode($module->title_3)) !!}
                 </div>
 
             </div>
@@ -225,15 +228,18 @@
             <div class="row text-center text-white">
 
                 <div class="col-md-4 mb-2 mb-md-0">
-                    FREE DELIVERY & FIXING
+                    {{-- FREE DELIVERY & FIXING --}}
+                    {!! strip_tags(htmlspecialchars_decode($module->title_4)) !!}
                 </div>
 
                 <div class="col-md-4 mb-2 mb-md-0">
-                    UAE LARGEST RANGE
+                    {{-- UAE LARGEST RANGE --}}
+                    {!! strip_tags(htmlspecialchars_decode($module->title_5)) !!}
                 </div>
 
                 <div class="col-md-4">
-                    1 YEAR WARRANTY
+                    {{-- 1 YEAR WARRANTY --}}
+                    {!! strip_tags(htmlspecialchars_decode($module->title_6)) !!}
                 </div>
 
             </div>

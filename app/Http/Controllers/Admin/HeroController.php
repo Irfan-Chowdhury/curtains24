@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Hero;
 use Exception;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class HeroController extends Controller
         }
 
         $hero = Hero::first();
-        return view('admin.hero-section.index', compact('hero'));
+        return view('admin.pages.hero-section.index', compact('hero'));
     }
 
     public function update(Request $request)
