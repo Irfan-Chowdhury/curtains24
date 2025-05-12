@@ -149,4 +149,5 @@
         </div>
     </nav>
     @include('admin.shared.flash_message')
+    @include('admin.shared.errors')
 </header>

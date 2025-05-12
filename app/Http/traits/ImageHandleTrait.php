@@ -13,19 +13,42 @@ use Illuminate\Support\Facades\Storage;
 
 trait ImageHandleTrait {
 
-    public function imageStore(string|object $imageFile, string $directory, int $width, int $height)
+    // public function imageStore(string|object $imageFile, string $directory, int $width, int $height)
+    // {
+
+    //     $fileName  = Str::random(10). '.' .$imageFile->getClientOriginalExtension();
+
+    //     $image = Image::make($imageFile)->resize($width, $height)->encode('jpg');
+
+    //     $filePath = $directory."{$fileName}";
+
+    //     Storage::disk('public')->put($filePath, $image);
+
+    //     return $filePath;
+    // }
+
+    public function imageStore(string|object $imageFile, string $directory, int $width, int $height): string
     {
+        $extension = strtolower($imageFile->getClientOriginalExtension());
 
-        $fileName  = Str::random(10). '.' .$imageFile->getClientOriginalExtension();
+        // Block unsupported types
+        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'];
+        if (!in_array($extension, $allowed)) {
+            throw new Exception("Unsupported image type: {$extension}");
+        }
 
-        $image = Image::make($imageFile)->resize($width, $height)->encode('jpg');
+        $fileName  = Str::random(10) . '.' . $extension;
 
-        $filePath = $directory."{$fileName}";
+        $image = Image::make($imageFile)->resize($width, $height)->encode($extension); // you may also encode to $extension
+
+        $filePath = $directory . $fileName;
 
         Storage::disk('public')->put($filePath, $image);
 
         return $filePath;
+
     }
+
 
     public function previousImageDelete(string|null $filePath): void
     {

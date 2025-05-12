@@ -8,15 +8,18 @@ use App\Models\PrivacyAndPolicy;
 use App\Models\TermAndCondition;
 use App\Services\BannerService;
 use App\Services\SettingService;
+use App\Services\SliderService;
 
 class HomeController
 {
     private $settingService;
     private $bannerService;
-    public function __construct(SettingService $settingService, BannerService $bannerService)
+    private $sliderService;
+    public function __construct(SettingService $settingService, BannerService $bannerService, SliderService $sliderService)
     {
         $this->settingService = $settingService;
         $this->bannerService = $bannerService;
+        $this->sliderService = $sliderService;
     }
 
 	public function index()
@@ -24,8 +27,8 @@ class HomeController
         $banner = $this->bannerService->getBannerData();
         $hero = Hero::first();
         $module = Module::latest()->first();
-
-        return view('visitor.pages.index', compact('banner','hero','module'));
+        $slider = $this->sliderService->getSliderData();
+        return view('visitor.pages.index', compact('banner','hero','module','slider'));
 	}
 
     public function termsAndCondition()

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ModuleController;
 use App\Http\Controllers\Admin\PrivacyAndPolicyController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TermAndConditionController;
 use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,6 @@ Auth::routes(['register' => false]);
 
 
 Route::group(['middleware' => ['XSS','auth']], function ()  {
-// Route::group(['middleware' => ['auth']], function ()  {
-
     Route::prefix('admin')->group(function () {
 
         Route::group(['as' => 'admin.'], function () {
@@ -46,6 +45,11 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
         Route::get('/privacy-and-policy', [PrivacyAndPolicyController::class, 'index'])->name('privacy-and-policy.index')->withoutMiddleware([XSS::class]);
         Route::post('/privacy-and-policy/update', [PrivacyAndPolicyController::class, 'update'])->name('privacy-and-policy.update')->withoutMiddleware([XSS::class]);
 
+        Route::get('/sliders', [SliderController::class, 'index'])->name('sliders.index');
+        Route::post('/sliders/store', [SliderController::class, 'store'])->name('sliders.store');
+        Route::get('/sliders/edit/{slider}', [SliderController::class, 'edit'])->name('sliders.edit');
+        Route::post('/sliders/update', [SliderController::class, 'update'])->name('sliders.update');
+        Route::get('/sliders/destroy/{slider}', [SliderController::class, 'destroy'])->name('sliders.destroy');
     });
 
 

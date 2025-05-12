@@ -36,28 +36,33 @@
 
                     <li class="{{ (request()->is('banners')) ? 'active' : '' }}"><a
                         href="{{route('banners.index')}}"> <i
-                            class="dripicons-calendar"></i><span>{{__('Banner')}}</span></a>
+                            class="dripicons-photo"></i><span>{{__('Banner')}}</span></a>
                     </li>
 
 
                     <li class="{{ (request()->is('hero-section')) ? 'active' : '' }}"><a
                         href="{{route('hero-section.index')}}"> <i
-                            class="dripicons-calendar"></i><span>{{__('Hero Section')}}</span></a>
+                            class="dripicons-star"></i><span>{{__('Hero Section')}}</span></a>
                     </li>
 
                     <li class="{{ (request()->is('modules')) ? 'active' : '' }}"><a
                         href="{{route('modules.index')}}"> <i
-                            class="dripicons-calendar"></i><span>{{__('Modules')}}</span></a>
+                            class="dripicons-view-apps"></i><span>{{__('Modules')}}</span></a>
                     </li>
 
                     <li class="{{ (request()->is('term-and-conditions')) ? 'active' : '' }}"><a
                         href="{{route('term-and-conditions.index')}}"> <i
-                            class="dripicons-calendar"></i><span>{{__('Term and Conditions')}}</span></a>
+                            class="dripicons-document"></i><span>{{__('Term and Conditions')}}</span></a>
                     </li>
 
                     <li class="{{ (request()->is('privacy-and-policy')) ? 'active' : '' }}"><a
                         href="{{route('privacy-and-policy.index')}}"> <i
-                            class="dripicons-calendar"></i><span>{{__('Privacy and Policy')}}</span></a>
+                            class="dripicons-lock"></i><span>{{__('Privacy and Policy')}}</span></a>
+                    </li>
+
+                    <li class="{{ (request()->is('sliders')) ? 'active' : '' }}"><a
+                        href="{{route('sliders.index')}}"> <i
+                            class="dripicons-photo"></i><span>{{__('Slider')}}</span></a>
                     </li>
 
 
@@ -156,7 +161,7 @@
                 @endcan
 
 
-                @can('performance')
+                {{-- @can('performance')
                         <li class="has-dropdown {{ (request()->is('performance*')) ? 'active' : '' }}">
                             @if(auth()->user()->can('view-goal-type') || auth()->user()->can('view-goal-tracking') || auth()->user()->can('view-indicator') || auth()->user()->can('view-appraisal'))
                                 <a href="#performance" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-bar-chart"></i>
@@ -178,7 +183,7 @@
                                 @endcan
                             </ul>
                         </li>
-                    @endcan
+                    @endcan --}}
 
                 @can('view-calendar')
                     <li class="{{ (request()->is('calendar*')) ? 'active' : '' }}"><a

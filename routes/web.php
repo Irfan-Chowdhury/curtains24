@@ -72,10 +72,10 @@ use App\Http\Controllers\OfficeShiftController;
 use App\Http\Controllers\OfficialDocumentController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\PayslipController;
-use App\Http\Controllers\Performance\AppraisalController;
-use App\Http\Controllers\Performance\GoalTrackingController;
-use App\Http\Controllers\Performance\GoalTypeController;
-use App\Http\Controllers\Performance\IndicatorController;
+// use App\Http\Controllers\Performance\AppraisalController;
+// use App\Http\Controllers\Performance\GoalTrackingController;
+// use App\Http\Controllers\Performance\GoalTypeController;
+// use App\Http\Controllers\Performance\IndicatorController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProjectBugController;
@@ -131,9 +131,9 @@ use App\Http\Controllers\Variables\WarningTypeController;
 use App\Http\Controllers\WarningController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Addon\BiometricAddonController;
-use App\Http\Controllers\Addon\CRMController;
-use App\Http\Controllers\Addon\SaasController;
+// use App\Http\Controllers\Addon\BiometricAddonController;
+// use App\Http\Controllers\Addon\CRMController;
+// use App\Http\Controllers\Addon\SaasController;
 use App\Http\Controllers\Variables\DeductionTypeController;
 use App\Http\Controllers\Variables\DepositCategoryController;
 use App\Http\Controllers\Variables\LoanTypeController;
@@ -185,35 +185,35 @@ Route::prefix('addons')->group(function () {
         return view('admin.addons.index');
     })->name('addons');
 
-    Route::controller(BiometricAddonController::class)->group(function () {
-        Route::prefix('biometric')->group(function () {
-            Route::get('install/step-1', 'biometricInstallStep1')->name('biometric-install-step-1');
-            Route::get('install/step-2', 'biometricInstallStep2')->name('biometric-install-step-2');
-            Route::get('install/step-3', 'biometricInstallStep3')->name('biometric-install-step-3');
-            Route::post('install/process', 'biometricInstallProcess')->name('biometric-install-process');
-            Route::get('install/step-4', 'biometricInstallStep4')->name('biometric-install-step-4');
-        });
-    });
+    // Route::controller(BiometricAddonController::class)->group(function () {
+    //     Route::prefix('biometric')->group(function () {
+    //         Route::get('install/step-1', 'biometricInstallStep1')->name('biometric-install-step-1');
+    //         Route::get('install/step-2', 'biometricInstallStep2')->name('biometric-install-step-2');
+    //         Route::get('install/step-3', 'biometricInstallStep3')->name('biometric-install-step-3');
+    //         Route::post('install/process', 'biometricInstallProcess')->name('biometric-install-process');
+    //         Route::get('install/step-4', 'biometricInstallStep4')->name('biometric-install-step-4');
+    //     });
+    // });
 
-    Route::controller(SaasController::class)->group(function () {
-        Route::prefix('saas')->group(function () {
-            Route::get('install/step-1', 'saasInstallStep1')->name('saas-install-step-1');
-            Route::get('install/step-2', 'saasInstallStep2')->name('saas-install-step-2');
-            Route::get('install/step-3', 'saasInstallStep3')->name('saas-install-step-3');
-            Route::post('install/process', 'saasInstallProcess')->name('saas-install-process');
-            Route::get('install/step-4', 'saasInstallStep4')->name('saas-install-step-4');
-        });
-    });
+    // Route::controller(SaasController::class)->group(function () {
+    //     Route::prefix('saas')->group(function () {
+    //         Route::get('install/step-1', 'saasInstallStep1')->name('saas-install-step-1');
+    //         Route::get('install/step-2', 'saasInstallStep2')->name('saas-install-step-2');
+    //         Route::get('install/step-3', 'saasInstallStep3')->name('saas-install-step-3');
+    //         Route::post('install/process', 'saasInstallProcess')->name('saas-install-process');
+    //         Route::get('install/step-4', 'saasInstallStep4')->name('saas-install-step-4');
+    //     });
+    // });
 
-    Route::controller(CRMController::class)->group(function () {
-        Route::prefix('crm')->group(function () {
-            Route::get('install/step-1', 'crmInstallStep1')->name('crm-install-step-1');
-            Route::get('install/step-2', 'crmInstallStep2')->name('crm-install-step-2');
-            Route::get('install/step-3', 'crmInstallStep3')->name('crm-install-step-3');
-            Route::post('install/process', 'crmInstallProcess')->name('crm-install-process');
-            Route::get('install/step-4', 'crmInstallStep4')->name('crm-install-step-4');
-        });
-    });
+    // Route::controller(CRMController::class)->group(function () {
+    //     Route::prefix('crm')->group(function () {
+    //         Route::get('install/step-1', 'crmInstallStep1')->name('crm-install-step-1');
+    //         Route::get('install/step-2', 'crmInstallStep2')->name('crm-install-step-2');
+    //         Route::get('install/step-3', 'crmInstallStep3')->name('crm-install-step-3');
+    //         Route::post('install/process', 'crmInstallProcess')->name('crm-install-process');
+    //         Route::get('install/step-4', 'crmInstallStep4')->name('crm-install-step-4');
+    //     });
+    // });
 });
 
 
@@ -1009,45 +1009,45 @@ Route::group(['middleware' => ['XSS','checkDataTable']], function ()  {
 
     //Performance Feature By - Md Irfan Chowdhury
 
-    Route::group(['prefix' => 'performance', 'namespace' => 'Performance'], function () {
-        Route::group(['prefix' => 'goal-type'], function () {
-            Route::get('/index', [GoalTypeController::class, 'index'])->name('performance.goal-type.index');
-            Route::post('/store', [GoalTypeController::class, 'store'])->name('performance.goal-type.store');
-            Route::get('/edit', [GoalTypeController::class, 'edit'])->name('performance.goal-type.edit');
-            Route::post('/update', [GoalTypeController::class, 'update'])->name('performance.goal-type.update');
-            Route::get('/delete', [GoalTypeController::class, 'delete'])->name('performance.goal-type.delete');
-            Route::get('/delete-checkbox', [GoalTypeController::class, 'deleteCheckbox'])->name('performance.goal-type.delete.checkbox');
-        });
+    // Route::group(['prefix' => 'performance', 'namespace' => 'Performance'], function () {
+    //     Route::group(['prefix' => 'goal-type'], function () {
+    //         Route::get('/index', [GoalTypeController::class, 'index'])->name('performance.goal-type.index');
+    //         Route::post('/store', [GoalTypeController::class, 'store'])->name('performance.goal-type.store');
+    //         Route::get('/edit', [GoalTypeController::class, 'edit'])->name('performance.goal-type.edit');
+    //         Route::post('/update', [GoalTypeController::class, 'update'])->name('performance.goal-type.update');
+    //         Route::get('/delete', [GoalTypeController::class, 'delete'])->name('performance.goal-type.delete');
+    //         Route::get('/delete-checkbox', [GoalTypeController::class, 'deleteCheckbox'])->name('performance.goal-type.delete.checkbox');
+    //     });
 
-        Route::group(['prefix' => 'goal-tracking'], function () {
-            Route::get('/index', [GoalTrackingController::class, 'index'])->name('performance.goal-tracking.index');
-            Route::post('/store', [GoalTrackingController::class, 'store'])->name('performance.goal-tracking.store');
-            Route::get('/edit', [GoalTrackingController::class, 'edit'])->name('performance.goal-tracking.edit');
-            Route::post('/update', [GoalTrackingController::class, 'update'])->name('performance.goal-tracking.update');
-            Route::get('/delete', [GoalTrackingController::class, 'delete'])->name('performance.goal-tracking.delete');
-            Route::get('/delete-checkbox', [GoalTrackingController::class, 'deleteCheckbox'])->name('performance.goal-tracking.delete.checkbox');
-        });
+    //     Route::group(['prefix' => 'goal-tracking'], function () {
+    //         Route::get('/index', [GoalTrackingController::class, 'index'])->name('performance.goal-tracking.index');
+    //         Route::post('/store', [GoalTrackingController::class, 'store'])->name('performance.goal-tracking.store');
+    //         Route::get('/edit', [GoalTrackingController::class, 'edit'])->name('performance.goal-tracking.edit');
+    //         Route::post('/update', [GoalTrackingController::class, 'update'])->name('performance.goal-tracking.update');
+    //         Route::get('/delete', [GoalTrackingController::class, 'delete'])->name('performance.goal-tracking.delete');
+    //         Route::get('/delete-checkbox', [GoalTrackingController::class, 'deleteCheckbox'])->name('performance.goal-tracking.delete.checkbox');
+    //     });
 
-        Route::group(['prefix' => 'indicator'], function () {
-            Route::get('/index', [IndicatorController::class, 'index'])->name('performance.indicator.index');
-            Route::get('/get-designation', [IndicatorController::class, 'getDesignationByComapny'])->name('performance.indicator.get-designation-by-company');
-            Route::post('/store', [IndicatorController::class, 'store'])->name('performance.indicator.store');
-            Route::get('/edit', [IndicatorController::class, 'edit'])->name('performance.indicator.edit');
-            Route::post('/update', [IndicatorController::class, 'update'])->name('performance.indicator.update');
-            Route::get('/delete', [IndicatorController::class, 'delete'])->name('performance.indicator.delete');
-            Route::get('/delete-checkbox', [IndicatorController::class, 'deleteCheckbox'])->name('performance.indicator.delete.checkbox');
-        });
+    //     Route::group(['prefix' => 'indicator'], function () {
+    //         Route::get('/index', [IndicatorController::class, 'index'])->name('performance.indicator.index');
+    //         Route::get('/get-designation', [IndicatorController::class, 'getDesignationByComapny'])->name('performance.indicator.get-designation-by-company');
+    //         Route::post('/store', [IndicatorController::class, 'store'])->name('performance.indicator.store');
+    //         Route::get('/edit', [IndicatorController::class, 'edit'])->name('performance.indicator.edit');
+    //         Route::post('/update', [IndicatorController::class, 'update'])->name('performance.indicator.update');
+    //         Route::get('/delete', [IndicatorController::class, 'delete'])->name('performance.indicator.delete');
+    //         Route::get('/delete-checkbox', [IndicatorController::class, 'deleteCheckbox'])->name('performance.indicator.delete.checkbox');
+    //     });
 
-        Route::group(['prefix' => 'appraisal'], function () {
-            Route::get('/index', [AppraisalController::class, 'index'])->name('performance.appraisal.index');
-            Route::get('/get-employee', [AppraisalController::class, 'getEmployee'])->name('performance.appraisal.get-employee');
-            Route::post('/store', [AppraisalController::class, 'store'])->name('performance.appraisal.store');
-            Route::get('/edit', [AppraisalController::class, 'edit'])->name('performance.appraisal.edit');
-            Route::post('/update', [AppraisalController::class, 'update'])->name('performance.appraisal.update');
-            Route::get('/delete', [AppraisalController::class, 'delete'])->name('performance.appraisal.delete');
-            Route::get('/delete-checkbox', [AppraisalController::class, 'deleteCheckbox'])->name('performance.appraisal.delete.checkbox');
-        });
-    });
+    //     Route::group(['prefix' => 'appraisal'], function () {
+    //         Route::get('/index', [AppraisalController::class, 'index'])->name('performance.appraisal.index');
+    //         Route::get('/get-employee', [AppraisalController::class, 'getEmployee'])->name('performance.appraisal.get-employee');
+    //         Route::post('/store', [AppraisalController::class, 'store'])->name('performance.appraisal.store');
+    //         Route::get('/edit', [AppraisalController::class, 'edit'])->name('performance.appraisal.edit');
+    //         Route::post('/update', [AppraisalController::class, 'update'])->name('performance.appraisal.update');
+    //         Route::get('/delete', [AppraisalController::class, 'delete'])->name('performance.appraisal.delete');
+    //         Route::get('/delete-checkbox', [AppraisalController::class, 'deleteCheckbox'])->name('performance.appraisal.delete.checkbox');
+    //     });
+    // });
 
     // Auto Update
     Route::group(['prefix' => 'developer-section'], function () {

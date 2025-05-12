@@ -1,5 +1,9 @@
 @extends('visitor.layout.master')
 
+@push('visitor-css')
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+@endpush
+
 @section('content-visitor')
 
     <!-- Tailored Curtains Section -->
@@ -184,8 +188,10 @@
     <section class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="font-weight-bold">HOW IT LOOKS</h2>
-                <p class="lead">Discover how our curtains transform spaces: get inspired and imagine the perfect look for your own home.</p>
+                {{-- <h2 class="font-weight-bold">HOW IT LOOKS</h2> --}}
+                <h2 class="font-weight-bold">{{ $slider->slider_heading }}</h2>
+                {{-- <p class="lead">Discover how our curtains transform spaces: get inspired and imagine the perfect look for your own home.</p> --}}
+                <p class="lead">{{ $slider->slider_description }}</p>
             </div>
 
             <!-- Custom Carousel -->
@@ -193,7 +199,42 @@
                 <div class="gallery-container">
                     <div class="gallery-track" id="galleryTrack">
                         <!-- Gallery Items -->
-                        <div class="gallery-item">
+
+                        {{-- @foreach ($slider->images as $image)
+                            <div class="gallery-item">
+                                <img src="{{ $image->path }}" class="img-fluid rounded" alt="Living Room">
+                                @if ($image->isTitleVisible)
+                                    <div class="caption">{{ $image->title }}</div>
+                                @endif
+                            </div>
+                        @endforeach --}}
+                        {{-- @foreach ($slider->images as $image)
+                            <div class="gallery-item">
+                                <a href="{{ $image->path }}" data-lightbox="slider-gallery" data-title="{{ $image->title }}">
+                                    <img src="{{ $image->path }}" class="img-fluid rounded" alt="Image">
+                                </a>
+                                @if ($image->isTitleVisible)
+                                    <div class="caption">{{ $image->title }}</div>
+                                @endif
+                            </div>
+                        @endforeach --}}
+
+                        @foreach ($slider->images as $image)
+                            <div class="gallery-item">
+                                <a href="{{ $image->path  }}"
+                                data-lightbox="slider-gallery"
+                                data-title="{{ $image->title }}">
+                                    <img src="{{ $image->path}}" class="img-fluid rounded" alt="Image">
+                                </a>
+                                @if ($image->isTitleVisible)
+                                    <div class="caption">{{ $image->title }}</div>
+                                @endif
+                            </div>
+                        @endforeach
+
+
+
+                        {{-- <div class="gallery-item">
                             <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91" class="img-fluid rounded" alt="Living Room">
                         </div>
                         <div class="gallery-item">
@@ -211,7 +252,7 @@
                         <div class="gallery-item">
                             <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200" class="img-fluid rounded" alt="Blackout">
                             <div class="caption">Blackout</div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -472,3 +513,14 @@
     </section>
 
 @endsection
+
+@push('visitor-js')
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+<script>
+    // lightbox.option({
+    //     'resizeDuration': 200,
+    //     'wrapAround': true,
+    //     'showImageNumberLabel': true
+    // });
+</script>
+@endpush
