@@ -42,7 +42,7 @@
                         <!-- Title Visible Checkbox -->
                         <div class="col-md-3">
                             <div class="form-check">
-                                <input type="checkbox" name="is_title_visible" class="form-check-input" id="is_title_visible" value="1" checked>
+                                <input type="checkbox" name="is_title_visible" class="form-check-input" value="1" checked>
                                 <label class="form-check-label" for="is_title_visible">Title Visible</label>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <!-- Active Checkbox -->
                         <div class="col-md-3">
                             <div class="form-check">
-                                <input type="checkbox" name="is_active" class="form-check-input" id="is_active" value="1" checked>
+                                <input type="checkbox" name="is_active" class="form-check-input"  value="1" checked>
                                 <label class="form-check-label" for="is_active">Active</label>
                             </div>
                         </div>

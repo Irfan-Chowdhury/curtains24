@@ -27,7 +27,7 @@ trait ImageHandleTrait {
     //     return $filePath;
     // }
 
-    public function imageStore(string|object $imageFile, string $directory, int $width, int $height): string
+    public function imageStore(string|object $imageFile, string $directory, int|null $width, int|null $height): string
     {
         $extension = strtolower($imageFile->getClientOriginalExtension());
 
@@ -39,14 +39,20 @@ trait ImageHandleTrait {
 
         $fileName  = Str::random(10) . '.' . $extension;
 
-        $image = Image::make($imageFile)->resize($width, $height)->encode($extension); // you may also encode to $extension
+        // $image = Image::make($imageFile)->resize($width, $height)->encode($extension); // you may also encode to $extension
+        $image = Image::make($imageFile);
+
+        if ($width && $height) {
+            $image->resize($width, $height);
+        }
+
+        $image->encode($extension);
 
         $filePath = $directory . $fileName;
 
         Storage::disk('public')->put($filePath, $image);
 
         return $filePath;
-
     }
 
 

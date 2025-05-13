@@ -1,34 +1,7 @@
 @extends('visitor.layout.master')
 
 @push('visitor-css')
-<!-- GLightbox CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-<style>
-    .gallery-image {
-        display: block;
-        width: 100%;
-        height: 300px; /* fixed thumbnail height */
-        overflow: hidden;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    .gallery-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* ensures image covers the box without distortion */
-        transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .gallery-image:hover img {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        filter: brightness(0.8);
-        transform: scale(1.03);
-    }
-
-
-</style>
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
 @endpush
 
 @section('content-visitor')
@@ -221,22 +194,37 @@
                 <p class="lead">{{ $slider->slider_description }}</p>
             </div>
 
-
-
             <!-- Custom Carousel -->
             <div class="curtains-gallery">
                 <div class="gallery-container">
                     <div class="gallery-track" id="galleryTrack">
                         <!-- Gallery Items -->
 
+                        {{-- @foreach ($slider->images as $image)
+                            <div class="gallery-item">
+                                <img src="{{ $image->path }}" class="img-fluid rounded" alt="Living Room">
+                                @if ($image->isTitleVisible)
+                                    <div class="caption">{{ $image->title }}</div>
+                                @endif
+                            </div>
+                        @endforeach --}}
+                        {{-- @foreach ($slider->images as $image)
+                            <div class="gallery-item">
+                                <a href="{{ $image->path }}" data-lightbox="slider-gallery" data-title="{{ $image->title }}">
+                                    <img src="{{ $image->path }}" class="img-fluid rounded" alt="Image">
+                                </a>
+                                @if ($image->isTitleVisible)
+                                    <div class="caption">{{ $image->title }}</div>
+                                @endif
+                            </div>
+                        @endforeach --}}
 
                         @foreach ($slider->images as $image)
                             <div class="gallery-item">
-                                {{-- <a href="{{ $image->url  }}" class="glightbox" data-title="{{ $image->title }}">
-                                    <img src="{{ $image->url  }}" class="img-fluid rounded" alt="Image">
-                                </a> --}}
-                                <a href="{{ $image->url }}" class="glightbox gallery-image" data-title="{{ $image->title }}">
-                                    <img src="{{ $image->url }}" class="img-fluid rounded" >
+                                <a href="{{ $image->path  }}"
+                                data-lightbox="slider-gallery"
+                                data-title="{{ $image->title }}">
+                                    <img src="{{ $image->path}}" class="img-fluid rounded" alt="Image">
                                 </a>
                                 @if ($image->isTitleVisible)
                                     <div class="caption">{{ $image->title }}</div>
@@ -271,6 +259,12 @@
                 <button class="nav-btn prev-btn">&lt;</button>
                 <button class="nav-btn next-btn">&gt;</button>
             </div>
+
+
+
+
+
+            
         </div>
     </section>
 
@@ -526,14 +520,13 @@
 
 @endsection
 
-
-@push('visitor-scripts')
-    <!-- GLightbox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script>
-        // Initialize GLightbox
-        const lightbox = GLightbox({
-            selector: '.glightbox'
-        });
-    </script>
+@push('visitor-js')
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+<script>
+    // lightbox.option({
+    //     'resizeDuration': 200,
+    //     'wrapAround': true,
+    //     'showImageNumberLabel': true
+    // });
+</script>
 @endpush

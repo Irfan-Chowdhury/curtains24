@@ -15,9 +15,15 @@ class SliderService
     public function getSliderData(): object|null
     {
         $storeFront = Storefront::latest()->first();
-        $sliders = Slider::select('id', 'title', 'is_title_visible', 'is_active')
-                    ->with('image:imageable_id,path,type')
-                    ->get();
+        $slidersQuery = Slider::select('id', 'title', 'is_title_visible', 'is_active')
+                    ->with('image:imageable_id,path,type');
+                    // ->get();
+
+        if (request()->routeIs('home')) {
+            $slidersQuery = $slidersQuery->where('is_active', true);
+        }
+
+        $sliders = $slidersQuery->get();
 
         $arrayData = [
             'slider_heading' => $storeFront->slider_heading,
@@ -28,7 +34,7 @@ class SliderService
                     'title' => $slider->title,
                     'isTitleVisible' => $slider->is_title_visible,
                     'isActive' => $slider->is_active,
-                    'path' => isset($slider->image->path) && Storage::disk('public')->exists($slider->image->path) ? Storage::url($slider->image->path) : "https://dummyimage.com/50x50/000000/0f6954.png&text=Slider",
+                    'url' => isset($slider->image->path) && Storage::disk('public')->exists($slider->image->path) ? Storage::url($slider->image->path) : "https://dummyimage.com/50x50/000000/0f6954.png&text=Slider",
                     'type' => $slider->image->type,
                 ];
             }),
@@ -46,7 +52,7 @@ class SliderService
         $slider->save();
 
         $slider->image()->create([
-            'path' => $this->imageStore($request->image, "uploads/images/slider/", 300, 300),
+            'path' => $this->imageStore($request->slider_image, "uploads/images/slider/", null, null),
             'type' => 'slider',
         ]);
     }
@@ -88,7 +94,7 @@ class SliderService
         $slider->is_title_visible = (boolean) $request->is_title_visible;
         $slider->is_active = (boolean) $request->is_active;
         $slider->update();
-        
+
         $dbSliderImagePath = optional($slider?->image)->path;
 
 
@@ -108,7 +114,7 @@ class SliderService
 
         $this->previousImageDelete($dbImagePath); //if null, then this line skip
 
-        return $this->imageStore($requestImage, "uploads/images/$folder/", 300, 300);
+        return $this->imageStore($requestImage, "uploads/images/$folder/", null, null);
     }
 
 

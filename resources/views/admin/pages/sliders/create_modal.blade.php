@@ -26,11 +26,11 @@
                         <div class="mb-2">
                             <img id="SliderImagePreview" alt="Slide Image" class="img-thumbnail" style="max-height: 150px;">
                         </div>
-                        <input type="file" name="image" id="sliderImageInput" class="form-control">
+                        <input type="file" name="slider_image" id="sliderImageInput" class="form-control">
                     </div>
-                    @if ($errors->has('image'))
+                    @if ($errors->has('slider_image'))
                         <span>
-                            <strong class="text-danger">{{ $errors->first('image') }}</strong>
+                            <strong class="text-danger">{{ $errors->first('slider_image') }}</strong>
                         </span>
                     @endif
 

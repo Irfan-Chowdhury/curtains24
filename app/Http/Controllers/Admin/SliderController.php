@@ -30,7 +30,7 @@ class SliderController extends Controller
     {
         $request->validate([
             'title' => ['required_if:is_title_visible,1', 'string', 'max:255'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'slider_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         DB::beginTransaction();

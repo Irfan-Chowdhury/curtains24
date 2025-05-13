@@ -1,5 +1,29 @@
 @extends('layout.main')
 
+@push('css')
+<!-- GLightbox CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<style>
+    .gallery-image {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gallery-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .gallery-image:hover img {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        filter: brightness(0.8);
+        transform: scale(1.03); /* slight zoom */
+    }
+</style>
+@endpush
 
 
 @section('content')
@@ -66,8 +90,6 @@
 
 
 <div class="container-fluid">
-
-
         <div class="card">
             <div class="card-header">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -98,7 +120,9 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <img src="{{$image->path}}" alt="Slider Image" class="img-fluid" style="max-width: 100px;">
+                                        <a href="{{ $image->url }}" class="glightbox gallery-image">
+                                            <img src="{{ $image->url }}" class="img-fluid" style="max-width: 100px;">
+                                        </a>
                                     </td>
 
                                     <td>
@@ -126,7 +150,19 @@
 @include('admin.pages.sliders.create_modal')
 @include('admin.pages.sliders.edit_modal')
 
+@endsection
+
 @push('scripts')
+
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        // Initialize GLightbox
+        const lightbox = GLightbox({
+            selector: '.glightbox'
+        });
+    </script>
+
     <script>
         const editURL = "{{ route('sliders.edit', ':id') }}";
         //--------- Edit -------
@@ -141,8 +177,8 @@
                     $("#editModal input[name='slider_id']").val(response.id);
                     $("#editModal input[name='title']").val(response.title);
                     $('#SliderImagePreviewEdit').attr('src', response.path);
-                    $("#editModal input[name='is_title_visible']").prop('checked', response.isTitleVisible === 1);
-                    $("#editModal input[name='is_active']").prop('checked', response.isActive === 1);
+                    $("#editModal input[name='is_title_visible']").prop('checked', response.isTitleVisible);
+                    $("#editModal input[name='is_active']").prop('checked', response.isActive);
                     $('#editModal').modal('show');
                 }
             })
@@ -250,33 +286,4 @@
             </div>
         </div>
     </section> --}}
-@endsection
 
-
-@push('scripts')
-    <script type="text/javascript">
-        (function($) {
-            "use strict";
-            $('#bannerImageOneInput').on('change', function(event) {
-                const input = event.target;
-                if (input.files && input.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#bannerImageOnePreview').attr('src', e.target.result);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            });
-            $('#bannerImageTwoInput').on('change', function(event) {
-                const input = event.target;
-                if (input.files && input.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#bannerImageTwoPreview').attr('src', e.target.result);
-                    };
-                    reader.readAsDataURL(input.files[0]);
-                }
-            });
-        })(jQuery);
-    </script>
-@endpush
