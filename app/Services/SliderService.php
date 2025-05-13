@@ -17,7 +17,6 @@ class SliderService
         $storeFront = Storefront::latest()->first();
         $slidersQuery = Slider::select('id', 'title', 'is_title_visible', 'is_active')
                     ->with('image:imageable_id,path,type');
-                    // ->get();
 
         if (request()->routeIs('home')) {
             $slidersQuery = $slidersQuery->where('is_active', true);

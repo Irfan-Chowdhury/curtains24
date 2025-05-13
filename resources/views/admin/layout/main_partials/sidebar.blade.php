@@ -50,6 +50,8 @@
                             class="dripicons-view-apps"></i><span>{{__('Modules')}}</span></a>
                     </li>
 
+
+
                     <li class="{{ (request()->is('term-and-conditions')) ? 'active' : '' }}"><a
                         href="{{route('term-and-conditions.index')}}"> <i
                             class="dripicons-document"></i><span>{{__('Term and Conditions')}}</span></a>
@@ -63,6 +65,11 @@
                     <li class="{{ (request()->is('sliders')) ? 'active' : '' }}"><a
                         href="{{route('sliders.index')}}"> <i
                             class="dripicons-photo"></i><span>{{__('Slider')}}</span></a>
+                    </li>
+
+                    <li class="{{ (request()->is('testimonials')) ? 'active' : '' }}"><a
+                        href="{{route('testimonials.index')}}"> <i
+                            class="dripicons-view-apps"></i><span>{{__('Testimonials')}}</span></a>
                     </li>
 
 

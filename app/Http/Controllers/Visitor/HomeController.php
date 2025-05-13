@@ -9,17 +9,21 @@ use App\Models\TermAndCondition;
 use App\Services\BannerService;
 use App\Services\SettingService;
 use App\Services\SliderService;
+use App\Services\TestimonialService;
 
 class HomeController
 {
     private $settingService;
     private $bannerService;
     private $sliderService;
-    public function __construct(SettingService $settingService, BannerService $bannerService, SliderService $sliderService)
+    private $testimonialService;
+
+    public function __construct(SettingService $settingService, BannerService $bannerService, SliderService $sliderService, TestimonialService $testimonialService)
     {
         $this->settingService = $settingService;
         $this->bannerService = $bannerService;
         $this->sliderService = $sliderService;
+        $this->testimonialService = $testimonialService;
     }
 
 	public function index()
@@ -28,7 +32,8 @@ class HomeController
         $hero = Hero::first();
         $module = Module::latest()->first();
         $slider = $this->sliderService->getSliderData();
-        return view('visitor.pages.index', compact('banner','hero','module','slider'));
+        $testimonials = $this->testimonialService->getTestimonialData();
+        return view('visitor.pages.index', compact('banner','hero','module','slider','testimonials'));
 	}
 
     public function termsAndCondition()

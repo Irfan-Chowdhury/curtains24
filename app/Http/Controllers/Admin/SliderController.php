@@ -21,7 +21,6 @@ class SliderController extends Controller
     public function index()
     {
         $slider = $this->sliderService->getSliderData();
-        // dd($slider);
 
         return view('admin.pages.sliders.index', compact('slider'));
     }

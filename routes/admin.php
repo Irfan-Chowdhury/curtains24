@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ModuleController;
 use App\Http\Controllers\Admin\PrivacyAndPolicyController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TermAndConditionController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Middleware\XSS;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,12 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
         Route::get('/sliders/edit/{slider}', [SliderController::class, 'edit'])->name('sliders.edit');
         Route::post('/sliders/update', [SliderController::class, 'update'])->name('sliders.update');
         Route::get('/sliders/destroy/{slider}', [SliderController::class, 'destroy'])->name('sliders.destroy');
+
+        Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials.index');
+        Route::post('/testimonials/store', [TestimonialController::class, 'store'])->name('testimonials.store');
+        Route::get('/testimonials/edit/{testimonial}', [TestimonialController::class, 'edit'])->name('testimonials.edit');
+        Route::post('/testimonials/update', [TestimonialController::class, 'update'])->name('testimonials.update');
+        Route::get('/testimonials/destroy/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
     });
 
 

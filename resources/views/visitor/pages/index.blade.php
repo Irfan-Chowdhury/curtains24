@@ -26,8 +26,6 @@
         filter: brightness(0.8);
         transform: scale(1.03);
     }
-
-
 </style>
 @endpush
 
@@ -228,13 +226,8 @@
                 <div class="gallery-container">
                     <div class="gallery-track" id="galleryTrack">
                         <!-- Gallery Items -->
-
-
                         @foreach ($slider->images as $image)
                             <div class="gallery-item">
-                                {{-- <a href="{{ $image->url  }}" class="glightbox" data-title="{{ $image->title }}">
-                                    <img src="{{ $image->url  }}" class="img-fluid rounded" alt="Image">
-                                </a> --}}
                                 <a href="{{ $image->url }}" class="glightbox gallery-image" data-title="{{ $image->title }}">
                                     <img src="{{ $image->url }}" class="img-fluid rounded" >
                                 </a>
@@ -360,56 +353,9 @@
 
 
     <!-- Clients Trust Us Section -->
-    <section class="py-5" style="background-color: lightgray;">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="font-weight-bold">OUR CLIENTS TRUST US</h2>
-            </div>
+    <!-- Part-1 -->
 
-            <div class="testimonial-carousel">
-                <div class="carousel-inner">
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            <p class="mb-3">Good service at home and will order more for sure. Thank you very kind, greetings</p>
-                            <div class="testimonial-author">
-                                <strong>Data</strong>
-                                <span>11 months ago</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-item active">
-                        <div class="testimonial-content">
-                            <p class="mb-3">Ordered curtains (blackout), 100% quality and customer-oriented approach. Took into account all the wishes and did everything remotely. Highly recommended</p>
-                            <div class="testimonial-author">
-                                <strong>Trips Jul</strong>
-                                <span>11 months ago</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            <p class="mb-3">Great Experience from start I actually stock the fabric I was there way to find similar. We holiday but all was seamless! delivery. Thank you will highly.</p>
-                            <div class="testimonial-author">
-                                <strong>Client Name</strong>
-                                <span>Time ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="carousel-dots">
-                    <span class="dot"></span>
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="testimonials-section">
+    {{-- <section class="testimonials-section">
         <div class="container">
             <h2>OUR CLIENTS TRUST US</h2>
 
@@ -428,72 +374,120 @@
                             <p>I am very happy with the service!!! Good quality of curtains and quick installation...</p>
                         </div>
                     </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="user">
-                                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User" />
-                                <div>
-                                    <strong>A. Watches</strong><br />
-                                    <small>3 months ago</small>
-                                </div>
-                            </div>
-                            <div class="stars">★★★★★</div>
-                            <p>They were super quick and the result was amazing! We were very happy with the final look!</p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="user">
-                                <img src="https://randomuser.me/api/portraits/men/25.jpg" alt="User" />
-                                <div>
-                                    <strong>James D.</strong><br />
-                                    <small>2 months ago</small>
-                                </div>
-                            </div>
-                            <div class="stars">★★★★★</div>
-                            <p>Excellent service! Curtains were made and installed perfectly. Highly recommended!</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="testimonial-card">
-                        <div class="user">
-                            <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="User" />
-                            <div>
-                                <strong>James D.</strong><br />
-                                <small>2 months ago</small>
-                            </div>
-                        </div>
-                        <div class="stars">★★★★★</div>
-                        <p>Excellent service! Curtains were made and installed perfectly. Highly recommended!</p>
-                    </div>
                 </div>
             </div>
 
-            <div class="swiper-slide">
-                <div class="testimonial-card">
-                    <div class="user">
-                        <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="User" />
-                        <div>
-                            <strong>James D.</strong><br />
-                            <small>2 months ago</small>
-                        </div>
-                    </div>
-                    <div class="stars">★★★★★</div>
-                    <p>Excellent service! Curtains were made and installed perfectly. Highly recommended!</p>
-                </div>
-            </div>
         </div>
-
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         </div>
         </div>
-    </section>
+    </section> --}}
 
+
+    {{-- <section class="testimonials-section">
+        <div class="container">
+            <h2>OUR CLIENTS TRUST US</h2>
+
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card-1">
+                            <div class="user">
+                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="User" />
+                                <div>
+                                    <strong>Maksime K.</strong><br />
+                                    <small>3 months ago</small>
+                                </div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                            <p>I am very happy with the service!!! Good quality of curtains and quick installation...</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card-1">
+                            <div class="user">
+                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="User" />
+                                <div>
+                                    <strong>Maksime K.</strong><br />
+                                    <small>3 months ago</small>
+                                </div>
+                            </div>
+                            <div class="stars">★★★★★</div>
+                            <p>I am very happy with the service!!! Good quality of curtains and quick installation...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        </div>
+        </div>
+    </section> --}}
+
+
+    <!-- Part-2 -->
+    <section class="py-5">
+        <div class="container-fluid testimonial-slider">
+            <h2 class="text-center font-weight-bold mb-5">OUR CLIENTS TRUST US</h2>
+            <div class="position-relative">
+              <button class="nav-button previous-button">&#8249;</button>
+              <button class="nav-button next-button">&#8250;</button>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="testimonial-track-wrapper overflow-hidden">
+                        <div class="testimonial-track">
+                          @foreach ($testimonials as $testimonial)
+                            <div class="testimonial-item">
+                                <div class="testimonial-card">
+                                    <img src="{{ $testimonial->url }}" class="img-fluid rounded" alt="Testimonial Image">
+                                </div>
+                            </div>
+                          @endforeach
+
+                          {{-- <div class="testimonial-item">
+                              <div class="testimonial-card">
+                                <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91" class="img-fluid rounded" alt="Living Room">
+                              </div>
+                            </div> --}}
+
+                            {{-- <div class="testimonial-item">
+                                <div class="testimonial-card">
+                                  <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" alt="Testimonial Image" class="img-fluid rounded">
+                                </div>
+                            </div> --}}
+                            {{-- <div class="testimonial-item">
+                                <div class="testimonial-card">
+                                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" class="img-fluid rounded" alt="Modern Design">
+                                </div>
+                            </div> --}}
+                            {{-- <div class="testimonial-item">
+                                <div class="testimonial-card">
+                                  <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" alt="Testimonial Image" class="img-fluid rounded">
+                                </div>
+                            </div> --}}
+                            {{-- <div class="testimonial-item">
+                                <div class="testimonial-card">
+                                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" class="img-fluid rounded" alt="Modern Design">
+                                </div>
+                            </div> --}}
+                            {{-- <div class="testimonial-item">
+                                <div class="testimonial-card">
+                                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" class="img-fluid rounded" alt="Sheer Curtains">
+                                </div>
+                            </div> --}}
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+            </div>
+          </div>
+    </section>
 
 
     <!-- Contact Us Section -->
@@ -536,4 +530,45 @@
             selector: '.glightbox'
         });
     </script>
+
+<script>
+    const track = document.querySelector('.testimonial-track');
+    const items = document.querySelectorAll('.testimonial-item');
+    const prevBtn = document.querySelector('.previous-button');
+    const nextBtn = document.querySelector('.next-button');
+
+    let index = 0;
+
+    function updateSlider() {
+      const itemWidth = items[0].offsetWidth;
+      track.style.transform = `translateX(-${index * itemWidth}px)`;
+
+      // Add focused class to the middle card
+      items.forEach((item, i) => {
+        item.classList.remove('focused');
+        if (i === index + 1) item.classList.add('focused');
+      });
+
+      // Toggle button visibility
+      prevBtn.style.display = index > 0 ? 'block' : 'none';
+      nextBtn.style.display = index < items.length - 3 ? 'block' : 'none';
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        updateSlider();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (index < items.length - 3) {
+        index++;
+        updateSlider();
+      }
+    });
+
+    // Initial update
+    updateSlider();
+  </script>
 @endpush
