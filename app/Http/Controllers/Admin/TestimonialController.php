@@ -22,9 +22,6 @@ class TestimonialController extends Controller
     {
         $testimonials = $this->testimonialService->getTestimonialData();
 
-        // dd(gettype($testimonials));
-        // dd($testimonials[0]->url);
-
         return view('admin.pages.testimonials.index', compact('testimonials'));
     }
 

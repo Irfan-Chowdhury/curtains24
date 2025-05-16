@@ -13,10 +13,12 @@
     {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
     <link rel="stylesheet" href="{{ asset('assets_visitor/css/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('visitor-css')
 </head>
 
 <body>
+
 
 
     @include('visitor.partials.navbar')
@@ -83,6 +85,30 @@
             }
         });
     </script>
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: '{{ session('success') }}',
+        confirmButtonColor: '#3085d6',
+        timer: 3000
+    });
+</script>
+@endif
+
+@if($errors->has('error'))
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: '{{ $errors->first('error') }}',
+        confirmButtonColor: '#d33',
+    });
+</script>
+@endif
+
 
     @stack('visitor-scripts')
 

@@ -14,8 +14,10 @@ class StorefrontSeeder extends Seeder
         Storefront::truncate();
 
         Storefront::create([
-            'slider_heading' => 'Slider Heading',
-            'slider_description' => 'Slider Description',
+            'slider_heading' => 'HOW IT LOOKS',
+            'slider_description' => 'Discover how our curtains transform spaces: get inspired and imagine the perfect look for your own home.',
+            'booking_heading' => 'BOOK FREE MEASUREMENTS',
+            'booking_description' => 'Our team will come with fabric samples.',
         ]);
     }
 }

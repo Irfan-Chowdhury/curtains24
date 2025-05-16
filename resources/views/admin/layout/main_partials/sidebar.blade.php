@@ -72,6 +72,27 @@
                             class="dripicons-view-apps"></i><span>{{__('Testimonials')}}</span></a>
                     </li>
 
+                    <li class="has-dropdown {{ (request()->is('curtains*')) ? 'active' : '' }}">
+                        <a href="#curtainSize" aria-expanded="false" data-toggle="collapse">
+                            <i class="dripicons-toggles"></i><span>{{__('Curtain Settings')}}</span>
+                        </a>
+                        <ul id="curtainSize" class="collapse list-unstyled ">
+                            <li><a href="{{route('curtains.size.index')}}">{{__('Size')}}</a></li>
+                            <li><a href="{{route('curtains.types.index')}}">{{__('Type')}}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown {{ (request()->is('available-times*')) ? 'active' : '' }}">
+                        <a href="#booking-management" aria-expanded="false" data-toggle="collapse">
+                            <i class="dripicons-toggles"></i><span>{{__('Booking Management')}}</span>
+                        </a>
+                        <ul id="booking-management" class="collapse list-unstyled ">
+                            <li><a href="{{route('available-times.index')}}">{{__('Available Times')}}</a></li>
+                            <li><a href="{{route('booking-storefront-setting.index')}}">{{__('Storefront Setting')}}</a></li>
+                            <li><a href="{{route('booking-schedule.index')}}">{{__('Booking Schedule')}}</a></li>
+                        </ul>
+                    </li>
+
 
 
 

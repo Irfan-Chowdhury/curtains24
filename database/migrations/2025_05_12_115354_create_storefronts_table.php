@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('storefronts', function (Blueprint $table) {
             $table->id();
-            $table->string('slider_heading',191)->nullable();
+            $table->string('slider_heading',255)->nullable();
             $table->text('slider_description')->nullable();
-            $table->string('testimonial_title',191)->nullable();
+            $table->string('booking_heading',255)->nullable();
+            $table->text('booking_description')->nullable();
             $table->string('contact_title',191)->nullable();
             $table->text('contact_description')->nullable();
             $table->timestamps();

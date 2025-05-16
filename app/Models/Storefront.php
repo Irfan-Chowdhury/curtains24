@@ -12,8 +12,14 @@ class Storefront extends Model
     protected $fillable = [
         'slider_heading',
         'slider_description',
-        'testimonial_title',
+        'booking_heading',
+        'booking_description',
         'contact_title',
         'contact_description',
     ];
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

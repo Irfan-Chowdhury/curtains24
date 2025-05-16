@@ -1,12 +1,17 @@
 <?php
 
+use App\Http\Controllers\Admin\AvailableTimeController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BookingScheduleController;
+use App\Http\Controllers\Admin\CurtainSizeController;
+use App\Http\Controllers\Admin\CurtainTypeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\ModuleController;
 use App\Http\Controllers\Admin\PrivacyAndPolicyController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\StorefrontController;
 use App\Http\Controllers\Admin\TermAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Middleware\XSS;
@@ -57,6 +62,49 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
         Route::get('/testimonials/edit/{testimonial}', [TestimonialController::class, 'edit'])->name('testimonials.edit');
         Route::post('/testimonials/update', [TestimonialController::class, 'update'])->name('testimonials.update');
         Route::get('/testimonials/destroy/{testimonial}', [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
+
+
+        Route::prefix('curtains')->group(function ()  {
+            Route::prefix('sizes')->group(function ()  {
+                Route::get('/', [CurtainSizeController::class, 'index'])->name('curtains.size.index');
+                Route::post('/store', [CurtainSizeController::class, 'store'])->name('curtains.size.store');
+                Route::get('/edit/{curtainSize}', [CurtainSizeController::class, 'edit'])->name('curtains.size.edit');
+                Route::post('/update', [CurtainSizeController::class, 'update'])->name('curtains.size.update');
+                Route::get('/destroy/{curtainSize}', [CurtainSizeController::class, 'destroy'])->name('curtains.size.destroy');
+            });
+
+            Route::prefix('types')->group(function ()  {
+                Route::get('/', [CurtainTypeController::class, 'index'])->name('curtains.types.index');
+                Route::post('/store', [CurtainTypeController::class, 'store'])->name('curtains.types.store');
+                Route::get('/edit/{curtainType}', [CurtainTypeController::class, 'edit'])->name('curtains.types.edit');
+                Route::post('/update', [CurtainTypeController::class, 'update'])->name('curtains.types.update');
+                Route::get('/destroy/{curtainType}', [CurtainTypeController::class, 'destroy'])->name('curtains.types.destroy');
+            });
+        });
+
+        Route::prefix('booking-management')->group(function ()  {
+            Route::prefix('available-times')->group(function ()  {
+                Route::get('/', [AvailableTimeController::class, 'index'])->name('available-times.index');
+                Route::post('/store', [AvailableTimeController::class, 'store'])->name('available-times.store');
+                Route::get('/edit/{availableTime}', [AvailableTimeController::class, 'edit'])->name('available-times.edit');
+                Route::post('/update', [AvailableTimeController::class, 'update'])->name('available-times.update');
+                Route::get('/destroy/{availableTime}', [AvailableTimeController::class, 'destroy'])->name('available-times.destroy');
+            });
+
+            Route::prefix('storefront-setting')->group(function ()  {
+                Route::get('/', [StorefrontController::class, 'bookingStorefrontSetting'])->name('booking-storefront-setting.index');
+                Route::post('/update', [StorefrontController::class, 'updateBookingStorefrontSetting'])->name('booking-storefront-setting.update');
+            });
+
+            Route::get('/booking-schedule', [BookingScheduleController::class, 'index'])->name('booking-schedule.index');
+            Route::get('/booking-schedule/destroy/{bookingSchedule}', [BookingScheduleController::class, 'destroy'])->name('booking-schedule.destroy');
+
+        });
+
+
+
+
+
     });
 
 

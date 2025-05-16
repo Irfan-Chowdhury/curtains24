@@ -146,7 +146,8 @@
             <div class="row no-gutters">
 
                 <div class="col-md-4">
-                    <img src="https://static.wixstatic.com/media/e01eb4_cbc2018586df43c5bb0ec9c526795c77~mv2.png/v1/crop/x_0,y_92,w_1439,h_1795/fill/w_377,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/curtains24_1.png"
+                    {{-- <img src="https://static.wixstatic.com/media/e01eb4_cbc2018586df43c5bb0ec9c526795c77~mv2.png/v1/crop/x_0,y_92,w_1439,h_1795/fill/w_377,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/curtains24_1.png" --}}
+                    <img src="{{ $bookingStorefront->banner_image }}"
                         class="img-fluid h-100 w-100"
                         alt="Curtains"
                         style="object-fit: cover;">
@@ -154,22 +155,39 @@
 
                 <div class="col-md-8" style="background-color: lightgray; padding: 40px;">
                     <div class="bg-white p-4 p-md-5 h-100 shadow-sm">
-                        <h2 class="text-center mb-4 font-weight-bold">BOOK FREE MEASUREMENTS</h2>
-                        <p class="text-center mb-4">Our team will come with fabric samples.</p>
+                        <h2 class="text-center mb-4 font-weight-bold">
+                            {{-- BOOK FREE MEASUREMENTS --}}
+                            {{ $bookingStorefront->heading }}
+                        </h2>
+                        <p class="text-center mb-4">
+                            {{-- Our team will come with fabric samples. --}}
+                            {{ $bookingStorefront->description }}
+                        </p>
 
-                        <form>
+                        <form action="{{ route('bookingStore') }}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="building" class="font-weight-bold">BUILDING NAME *</label>
-                                        <input type="text" class="form-control form-control-lg" id="building" required>
+                                        <input type="text" name="building_name" class="form-control form-control-lg" id="building" required>
+                                        @error('building_name')
+                                            <span>
+                                                <span class="text-danger">{{ $message }}</span>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone" class="font-weight-bold">PHONE *</label>
-                                        <input type="tel" class="form-control form-control-lg" id="phone" required>
+                                        <input type="tel" name="phone" class="form-control form-control-lg" id="phone" required>
+                                        @error('phone')
+                                            <span>
+                                                <span class="text-danger">{{ $message }}</span>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -178,15 +196,23 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="date" class="font-weight-bold">DATE *</label>
-                                        <input type="text" class="form-control form-control-lg" id="date" value="04/27/2025" required>
+                                        <input type="text" name="date" class="form-control form-control-lg" id="date" required>
+                                        @error('date')
+                                            <span>
+                                                <span class="text-danger">{{ $message }}</span>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="time" class="font-weight-bold">TIME *</label>
-                                        <select class="form-control form-control-lg" id="time" required>
+                                        <select name="time" class="form-control form-control-lg" id="time" required>
                                             <option value="">Select time</option>
-                                            <option>9:00 AM</option>
+                                            @foreach ($timeSlots as $item)
+                                                <option>{{ $item->start_time }} - {{ $item->end_time }}</option>
+                                            @endforeach
+                                            {{-- <option>9:00 AM</option>
                                             <option>10:00 AM</option>
                                             <option>11:00 AM</option>
                                             <option>12:00 PM</option>
@@ -194,8 +220,13 @@
                                             <option>2:00 PM</option>
                                             <option>3:00 PM</option>
                                             <option>4:00 PM</option>
-                                            <option>5:00 PM</option>
+                                            <option>5:00 PM</option> --}}
                                         </select>
+                                        @error('time')
+                                            <span>
+                                                <span class="text-danger">{{ $message }}</span>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -307,17 +338,23 @@
                     <div class="form-group mt-3">
                         <label for="height">HEIGHT</label>
                         <select id="height" class="form-control">
-                            <option value="1">2m 00cm</option>
+                            @foreach ($curtainSizes as $item)
+                                <option value="{{ $item->height }}">{{ $item->height_details }}</option>
+                            @endforeach
+                            {{-- <option value="1">2m 00cm</option>
                             <option value="1.2">2m 50cm</option>
-                            <option value="1.4">3m 00cm</option>
+                            <option value="1.4">3m 00cm</option> --}}
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="width">WIDTH</label>
                         <select id="width" class="form-control">
-                            <option value="1">2m 00cm</option>
+                            @foreach ($curtainSizes as $item)
+                                <option value="{{ $item->width }}">{{ $item->width_details }}</option>
+                            @endforeach
+                            {{-- <option value="1">2m 00cm</option>
                             <option value="1.2">2m 50cm</option>
-                            <option value="1.4">3m 00cm</option>
+                            <option value="1.4">3m 00cm</option> --}}
                         </select>
                     </div>
                 </div>
@@ -329,9 +366,12 @@
                     <div class="form-group mt-3">
                         <label for="type">TYPE</label>
                         <select id="type" class="form-control">
-                            <option value="1">Sheer curtains</option>
+                            @foreach ($curtainTypes as $item)
+                                <option value="{{ $item->price }}">{{ $item->name }}</option>
+                            @endforeach
+                            {{-- <option value="1">Sheer curtains</option>
                             <option value="1.3">Blackout curtains</option>
-                            <option value="1.5">Layered curtains</option>
+                            <option value="1.5">Layered curtains</option> --}}
                         </select>
                     </div>
                 </div>
