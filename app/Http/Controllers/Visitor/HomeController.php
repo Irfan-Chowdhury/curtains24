@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Visitor;
 
 use App\Models\BookingSchedule;
+use App\Models\Contact;
 use App\Models\Hero;
 use App\Models\Module;
 use App\Models\PrivacyAndPolicy;
 use App\Models\TermAndCondition;
 use App\Models\User;
 use App\Notifications\BookingCreatedNotification;
+use App\Notifications\ContactMessageReceived;
 use App\Services\AvailableTimeService;
 use App\Services\BannerService;
 use App\Services\CurtainSizeService;
@@ -54,9 +56,9 @@ class HomeController
         $curtainSizes = $this->curtainSizeService->getAllData();
         $curtainTypes = $this->curtainTypeService->getAllData();
         $timeSlots = $this->availableTimeService->getAllData();
-        $bookingStorefront = $this->storefrontService->getLatestData();
+        $storefrontSetting = $this->storefrontService->getLatestData();
 
-        return view('visitor.pages.index', compact('banner','hero','module','slider','testimonials','curtainSizes','curtainTypes','timeSlots','bookingStorefront'));
+        return view('visitor.pages.index', compact('banner','hero','module','slider','testimonials','curtainSizes','curtainTypes','timeSlots','storefrontSetting'));
 	}
 
     public function termsAndCondition()
@@ -123,10 +125,38 @@ class HomeController
 
             DB::rollBack();
 
-            return back()->withErrors(['error' => $e->getMessage()]);
+            return back()->withErrors([$e->getMessage()]);
         }
 
 
         return redirect()->route('home')->with('success', 'Booking schedule created successfully');
+    }
+
+    public function contactUsSend(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required|string|max:255',
+            'contact_phone' => 'required|string|max:191',
+            'message' => 'nullable|string',
+        ]);
+
+        try {
+            $contact = Contact::create([
+                'name' => $request->user_name,
+                'phone' => $request->contact_phone,
+                'message' => $request->message,
+            ]);
+
+            $admin = User::where('username', 'admin')->first();
+            if ($admin) {
+                $admin->notify(new ContactMessageReceived($contact));
+            }
+
+            return redirect()->back()->with('success', 'Message sent successfully');
+
+        } catch (Exception $e) {
+
+            return back()->withErrors([$e->getMessage()]);
+        }
     }
 }

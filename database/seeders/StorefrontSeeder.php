@@ -18,6 +18,8 @@ class StorefrontSeeder extends Seeder
             'slider_description' => 'Discover how our curtains transform spaces: get inspired and imagine the perfect look for your own home.',
             'booking_heading' => 'BOOK FREE MEASUREMENTS',
             'booking_description' => 'Our team will come with fabric samples.',
+            'contact_heading' => 'CONTACT US',
+            'contact_description' => 'We will get back in 5 minutes',
         ]);
     }
 }

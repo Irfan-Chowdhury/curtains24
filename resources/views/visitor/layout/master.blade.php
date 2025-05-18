@@ -25,7 +25,11 @@
 
     @yield('content-visitor')
 
+    @include('visitor.partials.whatsapp')
+
+
     @include('visitor.partials.footer')
+
 
 
     <!-- Bootstrap JS and dependencies -->
@@ -98,16 +102,18 @@
 </script>
 @endif
 
-@if($errors->has('error'))
+
+@if($errors->any())
 <script>
     Swal.fire({
         icon: 'error',
-        title: 'Error!',
-        text: '{{ $errors->first('error') }}',
+        title: 'Validation Errors',
+        html: `{!! implode('<br>', $errors->all()) !!}`,
         confirmButtonColor: '#d33',
     });
 </script>
 @endif
+
 
 
     @stack('visitor-scripts')

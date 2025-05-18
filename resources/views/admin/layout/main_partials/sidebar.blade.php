@@ -93,6 +93,18 @@
                         </ul>
                     </li>
 
+                   
+
+                    <li class="has-dropdown {{ (request()->is('contact-us*')) ? 'active' : '' }}">
+                        <a href="#contact-us" aria-expanded="false" data-toggle="collapse">
+                            <i class="dripicons-view-apps"></i><span>{{__('Contact Management')}}</span>
+                        </a>
+                        <ul id="contact-us" class="collapse list-unstyled ">
+                            <li><a href="{{route('contact-us-setting.index')}}">{{__('Contact Setting')}}</a></li>
+                            <li><a href="{{route('contact-us-messages.index')}}">{{__('Messages')}}</a></li>
+                        </ul>
+                    </li>
+
 
 
 

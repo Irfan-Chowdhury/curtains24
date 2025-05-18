@@ -14,7 +14,7 @@ class Storefront extends Model
         'slider_description',
         'booking_heading',
         'booking_description',
-        'contact_title',
+        'contact_heading',
         'contact_description',
     ];
 

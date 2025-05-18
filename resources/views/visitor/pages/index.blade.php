@@ -147,7 +147,7 @@
 
                 <div class="col-md-4">
                     {{-- <img src="https://static.wixstatic.com/media/e01eb4_cbc2018586df43c5bb0ec9c526795c77~mv2.png/v1/crop/x_0,y_92,w_1439,h_1795/fill/w_377,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/curtains24_1.png" --}}
-                    <img src="{{ $bookingStorefront->banner_image }}"
+                    <img src="{{ $storefrontSetting->banner_image }}"
                         class="img-fluid h-100 w-100"
                         alt="Curtains"
                         style="object-fit: cover;">
@@ -157,11 +157,11 @@
                     <div class="bg-white p-4 p-md-5 h-100 shadow-sm">
                         <h2 class="text-center mb-4 font-weight-bold">
                             {{-- BOOK FREE MEASUREMENTS --}}
-                            {{ $bookingStorefront->heading }}
+                            {{ $storefrontSetting->heading }}
                         </h2>
                         <p class="text-center mb-4">
                             {{-- Our team will come with fabric samples. --}}
-                            {{ $bookingStorefront->description }}
+                            {{ $storefrontSetting->description }}
                         </p>
 
                         <form action="{{ route('bookingStore') }}" method="post">
@@ -536,18 +536,41 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="contact-form-container p-4 p-md-5 shadow-sm">
-                        <h2 class="text-center mb-3 font-weight-bold">CONTACT US</h2>
-                        <p class="text-center mb-4">We will get back in 5 minutes</p>
+                        {{-- <h2 class="text-center mb-3 font-weight-bold">CONTACT US</h2>
+                        <p class="text-center mb-4">We will get back in 5 minutes</p> --}}
+                        <h2 class="text-center mb-3 font-weight-bold">{{ $storefrontSetting->contact_heading }}</h2>
+                        <p class="text-center mb-4">{{ $storefrontSetting->contact_description }}</p>
 
-                        <form>
+                        <form action="{{ route('contactUsSend') }}" method="post">
+                            @csrf
                             <div class="form-group">
                                 <label for="contactName" class="font-weight-bold">NAME *</label>
-                                <input type="text" class="form-control form-control-lg" id="contactName" required>
+                                <input type="text" name="user_name" class="form-control form-control-lg" required>
+                                @error('user_name')
+                                    <span>
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="contactPhone" class="font-weight-bold">PHONE *</label>
-                                <input type="tel" class="form-control form-control-lg" id="contactPhone" required>
+                                <input type="tel" name="contact_phone" class="form-control form-control-lg" required>
+                                @error('contact_phone')
+                                    <span>
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="font-weight-bold">MESSAGE <small>(Optional)</small></label>
+                                <textarea name="message" class="form-control form-control-lg"></textarea>
+                                @error('message')
+                                    <span>
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </span>
+                                @enderror
                             </div>
 
                             <button type="submit" class="btn btn-dark btn-block btn-lg mt-4 py-3 font-weight-bold">SEND</button>

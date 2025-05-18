@@ -23,8 +23,6 @@ class StorefrontController extends Controller
 
     public function updateBookingStorefrontSetting(Request $request)
     {
-        // dd($request->all());
-
         $request->validate([
             'booking_heading' => 'required|string|max:255',
             'booking_description' => 'required|string',
@@ -43,6 +41,5 @@ class StorefrontController extends Controller
         }
 
         return redirect()->back();
-
     }
 }

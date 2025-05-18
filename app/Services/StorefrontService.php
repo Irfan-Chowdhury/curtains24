@@ -20,6 +20,8 @@ class StorefrontService
             'heading' => isset($bookingData->booking_heading) ? $bookingData->booking_heading : '',
             'description' => isset($bookingData->booking_description) ? $bookingData->booking_description : '',
             'banner_image' => $this->imageOrDefault($bannerImagePath, 'Banner Image'),
+            'contact_heading' => isset($bookingData->contact_heading) ? $bookingData->contact_heading : '',
+            'contact_description' => isset($bookingData->contact_description) ? $bookingData->contact_description : '',
         ];
 
         return json_decode(json_encode($arrayData), false);
@@ -33,8 +35,16 @@ class StorefrontService
     public function updateData($request): void
     {
         $storefront = Storefront::latest()->first();
-        $storefront->booking_heading = $request->booking_heading;
-        $storefront->booking_description = $request->booking_description;
+
+        if($request->booking_heading && $request->booking_description) {
+            $storefront->booking_heading = $request->booking_heading;
+            $storefront->booking_description = $request->booking_description;
+        }
+
+        if($request->contact_heading && $request->contact_description) {
+            $storefront->contact_heading = $request->contact_heading;
+            $storefront->contact_description = $request->contact_description;
+        }
 
         if($request->banner_image) {
             $dbBannerImagePath = optional($storefront?->image)->path;

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AvailableTimeController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BookingScheduleController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\CurtainSizeController;
 use App\Http\Controllers\Admin\CurtainTypeController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -98,9 +99,14 @@ Route::group(['middleware' => ['XSS','auth']], function ()  {
 
             Route::get('/booking-schedule', [BookingScheduleController::class, 'index'])->name('booking-schedule.index');
             Route::get('/booking-schedule/destroy/{bookingSchedule}', [BookingScheduleController::class, 'destroy'])->name('booking-schedule.destroy');
-
         });
 
+        Route::prefix('contact-us')->group(function ()  {
+            Route::get('/settings', [ContactUsController::class, 'index'])->name('contact-us-setting.index');
+            Route::post('/settings/update', [ContactUsController::class, 'update'])->name('contact-us-setting.update');
+            Route::get('/messages', [ContactUsController::class, 'messages'])->name('contact-us-messages.index');
+            Route::get('/messages/show/{contact}', [ContactUsController::class, 'show'])->name('contact-us-messages.show');
+        });
 
 
 

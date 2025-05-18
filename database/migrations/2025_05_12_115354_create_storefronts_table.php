@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('slider_description')->nullable();
             $table->string('booking_heading',255)->nullable();
             $table->text('booking_description')->nullable();
-            $table->string('contact_title',191)->nullable();
+            $table->string('contact_heading',191)->nullable();
             $table->text('contact_description')->nullable();
             $table->timestamps();
         });
