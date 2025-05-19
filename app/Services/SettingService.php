@@ -22,6 +22,8 @@ class SettingService
         $arrayData = [
             'site_title' => isset($getGeneralSettingsData->site_title) ? $getGeneralSettingsData->site_title : '',
             'phone' => isset($getGeneralSettingsData->phone) ? $getGeneralSettingsData->phone : '',
+            'whatsapp_number' => isset($getGeneralSettingsData->whatsapp_number) ? $getGeneralSettingsData->whatsapp_number : '',
+            'whatsapp_default_message' => isset($getGeneralSettingsData->whatsapp_default_message) ? $getGeneralSettingsData->whatsapp_default_message : '',
             'site_logo' => $this->imageOrDefault($siteLogo, 'Company Logo'),
             'payment_logo' => $this->imageOrDefault($paymentLogo, 'Payment Logo'),
             'time_zone' => isset($getGeneralSettingsData->time_zone) ? $getGeneralSettingsData->time_zone : 'Asia/Dhaka',
@@ -64,6 +66,8 @@ class SettingService
         $generalSetting->time_zone = $request->time_zone;
         $generalSetting->currency = $request->currency;
         $generalSetting->currency_format = $request->currency_format;
+        $generalSetting->whatsapp_number = $request->whatsapp_number;
+        $generalSetting->whatsapp_default_message = $request->whatsapp_default_message;
 
         $dbSiteLogoPath = optional($generalSetting->siteLogo)->path;
         $dbPaymentLogoPath = optional($generalSetting->paymentLogo)->path;

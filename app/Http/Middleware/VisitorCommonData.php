@@ -22,6 +22,7 @@ class VisitorCommonData
         view()->composer([
             'visitor.partials.navbar',
             'visitor.partials.footer',
+            'visitor.partials.whatsapp',
         ], function ($view) use (
                 $generalSetting,
         ) {

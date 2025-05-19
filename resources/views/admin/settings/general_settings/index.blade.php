@@ -36,6 +36,20 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label><strong>{{ __('Whatsapp Number') }} </strong></label>
+                                            <input type="text" name="whatsapp_number" class="form-control"
+                                                value="{{ $generalSetting->whatsapp_number ?? '' }}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label><strong>{{ __('Whatsapp Default Message') }} </strong></label>
+                                            <input type="text" name="whatsapp_default_message" class="form-control"
+                                                value="{{ $generalSetting->whatsapp_default_message ?? '' }}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label><strong>{{ __('Company Logo') }}</strong></label>
 
                                             {{-- Preview Image --}}

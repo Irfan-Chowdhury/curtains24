@@ -9,6 +9,8 @@ class GeneralSetting extends Model
     protected $fillable =[
         "site_title",
         "phone",
+        "whatsapp_number",
+        "whatsapp_default_message",
         "time_zone",
         "currency",
         "currency_format",

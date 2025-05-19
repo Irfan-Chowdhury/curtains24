@@ -102,6 +102,27 @@ class GeneralSettingController extends Controller
 		return abort('403', __('You are not authorized'));
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 	public function emptyDatabase()
 	{
 		if(!env('USER_VERIFIED')) {

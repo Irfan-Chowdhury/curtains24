@@ -17,7 +17,10 @@
                     <a href="tel:+971524772085" class="phone-link mr-3">
                         <i class="fas fa-phone-alt"></i> {{ $generalSetting->phone }}
                     </a>
-                    <button class="quote-btn btn btn-outline-light">GET QUOTE</button>
+                    <a href="https://wa.me/{{ $generalSetting->whatsapp_number }}?text={{ $generalSetting->whatsapp_default_message }}" class="quote-btn btn btn-outline-light" target="_blank">
+                        Get Quote
+                    </a>
+                    {{-- <button class="quote-btn btn btn-outline-light">GET QUOTE</button> --}}
                 </div>
             </div>
 

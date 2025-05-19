@@ -48,10 +48,10 @@
                 <!-- Text & Buttons -->
                 <div class="col-md-4 position-relative mt-4 mt-md-0">
                     <!-- Faded Background Text -->
-                    <h1 class="font-helvetica position-absolute text-uppercase" style="color: rgba(0,0,0,0.05); font-size: 150px; top: -100px; left: 0; z-index: 0; line-height: 1;"><strong>Save<br>Time</strong></h1>
+                    <h1 class="font-helvetica position-absolute text-uppercase" style="color: rgba(0,0,0,0.05); font-size: 130px; top: 5px; left: 0; z-index: 0; line-height: 1;"><strong>Save<br>Time</strong></h1>
 
                     <!-- Foreground Content -->
-                    <div class="position-relative" style="z-index: 1; top:110px">
+                    <div class="position-relative" style="z-index: 1; top:130px">
                         {{-- <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">TAILORED CURTAINS<br>IN 24 HOURS</h1> --}}
                         <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">{{ $banner->title }}</h1>
 
