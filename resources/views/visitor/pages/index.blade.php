@@ -26,26 +26,24 @@
         filter: brightness(0.8);
         transform: scale(1.03);
     }
+
 </style>
 @endpush
 
 @section('content-visitor')
 
     <!-- Tailored Curtains Section -->
-    <section class="py-5">
+    <section class="py-5" id="startWithBanner">
         <div class="container">
-            <div class="row align-items-center">
-
-                <!-- Images -->
-                <div class="col-md-4 d-flex flex-wrap">
-                    {{-- <img src="https://static.wixstatic.com/media/e01eb4_ac5ed8a5a25b4540bcb51a8eeadee781f000.jpg/v1/fill/w_314,h_392,al_c,q_80,usm_0.33_1.00_0.00,enc_avif,quality_auto/e01eb4_ac5ed8a5a25b4540bcb51a8eeadee781f000.jpg" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow"> --}}
-                    <img src="{{ $banner->banner_image_1 }}" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
-                </div>
-                <!-- Images -->
-                <div class="col-md-4 d-flex flex-wrap">
-                    {{-- <img src="https://static.wixstatic.com/media/e01eb4_79aac579b5ca4f078272fe9f421a57b3~mv2.png/v1/crop/x_0,y_182,w_4284,h_5348/fill/w_377,h_470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_1085_HEIC.png" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow"> --}}
-                    <img src="{{ $banner->banner_image_2 }}" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
-                </div>
+            <div class="row align-items-stretch">
+                    <!-- Images -->
+                    <div class="col-md-4 d-flex flex-wrap">
+                        <img src="{{ $banner->banner_image_1 }}" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
+                    </div>
+                    <!-- Images -->
+                    <div class="col-md-4 d-flex flex-wrap">
+                        <img src="{{ $banner->banner_image_2 }}" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
+                    </div>
 
                 <!-- Text & Buttons -->
                 <div class="col-md-4 position-relative mt-4 mt-md-0">
@@ -57,18 +55,19 @@
                         {{-- <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">TAILORED CURTAINS<br>IN 24 HOURS</h1> --}}
                         <h1 class="font-helvetica font-weight-bold mb-4 text-center" style="font-size: 30px;">{{ $banner->title }}</h1>
 
-                        <button class="btn btn-dark btn-block mb-3" style="padding: 12px 0;">BOOK FREE MEASUREMENTS</button>
-                        <button class="btn btn-outline-dark btn-block" style="padding: 12px 0;">ONLINE CALCULATOR</button>
+                        <button id="scrollToFreeMeasurements" class="btn btn-dark btn-block mb-3" style="padding: 12px 0;">BOOK FREE MEASUREMENTS</button>
+                        <button id="scrollToCalculator" class="btn btn-outline-dark btn-block" style="padding: 12px 0;">
+                            ONLINE CALCULATOR
+                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
 
-    <!-- Perfect Curtains Section -->
-    <section class="py-5">
+    <!-- How it Works -->
+    <section class="py-5 mt-5" id="howItWorks">
         <div class="container text-center">
             {{-- <h2 class="font-helvetica mb-5 font-weight-bold">HAVE YOUR PERFECT CURTAINS WITHOUT LIFTING A FINGER</h2> --}}
             <h2 class="font-helvetica mb-5 font-weight-bold">{{  $hero->heading }}</h2>
@@ -141,7 +140,7 @@
 
 
     <!-- Book Measurements Section -->
-    <section class="py-5">
+    <section class="py-5" id="free-measurements">
         <div class="container px-0">
             <div class="row no-gutters">
 
@@ -241,17 +240,12 @@
 
 
     <!-- How It Looks Carousel Section -->
-    <section class="py-5">
+    <section class="py-5" id="howItLooks">
         <div class="container">
             <div class="text-center mb-5">
-                {{-- <h2 class="font-weight-bold">HOW IT LOOKS</h2> --}}
                 <h2 class="font-weight-bold">{{ $slider->slider_heading }}</h2>
-                {{-- <p class="lead">Discover how our curtains transform spaces: get inspired and imagine the perfect look for your own home.</p> --}}
                 <p class="lead">{{ $slider->slider_description }}</p>
             </div>
-
-
-
             <!-- Custom Carousel -->
             <div class="curtains-gallery">
                 <div class="gallery-container">
@@ -269,26 +263,6 @@
                         @endforeach
 
 
-
-                        {{-- <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91" class="img-fluid rounded" alt="Living Room">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" class="img-fluid rounded" alt="Bedroom">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" class="img-fluid rounded" alt="Modern Design">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1583845112203-454c42f19691" class="img-fluid rounded" alt="Office">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" class="img-fluid rounded" alt="Sheer Curtains">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200" class="img-fluid rounded" alt="Blackout">
-                            <div class="caption">Blackout</div>
-                        </div> --}}
                     </div>
                 </div>
 
@@ -325,13 +299,10 @@
 
 
     <!-- Online Calculator -->
-    <section class="calculator-section">
-        <div class="container">
+    <section class="calculator-section container" id="calculator">
             <h2 class="font-weight-bold">ONLINE CALCULATOR</h2>
             <p class="text-uppercase"><strong>10% OFF</strong> for 2 or more windows</p>
-
             <div class="row mt-5">
-                <!-- Size -->
                 <div class="col-md-4">
                     <h1 class="display-4">01</h1>
                     <h5>CHOOSE SIZE</h5>
@@ -341,9 +312,6 @@
                             @foreach ($curtainSizes as $item)
                                 <option value="{{ $item->height }}">{{ $item->height_details }}</option>
                             @endforeach
-                            {{-- <option value="1">2m 00cm</option>
-                            <option value="1.2">2m 50cm</option>
-                            <option value="1.4">3m 00cm</option> --}}
                         </select>
                     </div>
                     <div class="form-group">
@@ -352,9 +320,6 @@
                             @foreach ($curtainSizes as $item)
                                 <option value="{{ $item->width }}">{{ $item->width_details }}</option>
                             @endforeach
-                            {{-- <option value="1">2m 00cm</option>
-                            <option value="1.2">2m 50cm</option>
-                            <option value="1.4">3m 00cm</option> --}}
                         </select>
                     </div>
                 </div>
@@ -369,106 +334,25 @@
                             @foreach ($curtainTypes as $item)
                                 <option value="{{ $item->price }}">{{ $item->name }}</option>
                             @endforeach
-                            {{-- <option value="1">Sheer curtains</option>
-                            <option value="1.3">Blackout curtains</option>
-                            <option value="1.5">Layered curtains</option> --}}
                         </select>
                     </div>
                 </div>
 
-                <!-- Price -->
                 <div class="col-md-4">
                     <h1 class="display-4">PRICE</h1>
                     <div class="price-block mt-4">
                         <h3 id="price">AED 300</h3>
                         <p class="price-note">incl. curtains, railing, delivery, fixing</p>
-                        <button class="btn btn-dark btn-block mt-3">BOOK FREE MEASUREMENTS</button>
-                        <button class="btn btn-outline-dark btn-block mt-2">FREE CONSULTATION</button>
+                        <button id="scrollUpToFreeMeasurements" class="btn btn-dark btn-block mt-3">BOOK FREE MEASUREMENTS</button>
+                        <button class="btn btn-outline-dark btn-block mt-2" id="scrollToContactUs">FREE CONSULTATION</button>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
 
 
     <!-- Clients Trust Us Section -->
-    <!-- Part-1 -->
-
-    {{-- <section class="testimonials-section">
-        <div class="container">
-            <h2>OUR CLIENTS TRUST US</h2>
-
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="user">
-                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="User" />
-                                <div>
-                                    <strong>Maksime K.</strong><br />
-                                    <small>3 months ago</small>
-                                </div>
-                            </div>
-                            <div class="stars">★★★★★</div>
-                            <p>I am very happy with the service!!! Good quality of curtains and quick installation...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        </div>
-        </div>
-    </section> --}}
-
-
-    {{-- <section class="testimonials-section">
-        <div class="container">
-            <h2>OUR CLIENTS TRUST US</h2>
-
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card-1">
-                            <div class="user">
-                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="User" />
-                                <div>
-                                    <strong>Maksime K.</strong><br />
-                                    <small>3 months ago</small>
-                                </div>
-                            </div>
-                            <div class="stars">★★★★★</div>
-                            <p>I am very happy with the service!!! Good quality of curtains and quick installation...</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card-1">
-                            <div class="user">
-                                <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="User" />
-                                <div>
-                                    <strong>Maksime K.</strong><br />
-                                    <small>3 months ago</small>
-                                </div>
-                            </div>
-                            <div class="stars">★★★★★</div>
-                            <p>I am very happy with the service!!! Good quality of curtains and quick installation...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        </div>
-        </div>
-    </section> --}}
-
-
-    <!-- Part-2 -->
     <section class="py-5">
         <div class="container-fluid testimonial-slider">
             <h2 class="text-center font-weight-bold mb-5">OUR CLIENTS TRUST US</h2>
@@ -488,37 +372,7 @@
                             </div>
                           @endforeach
 
-                          {{-- <div class="testimonial-item">
-                              <div class="testimonial-card">
-                                <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91" class="img-fluid rounded" alt="Living Room">
-                              </div>
-                            </div> --}}
 
-                            {{-- <div class="testimonial-item">
-                                <div class="testimonial-card">
-                                  <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" alt="Testimonial Image" class="img-fluid rounded">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="testimonial-item">
-                                <div class="testimonial-card">
-                                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" class="img-fluid rounded" alt="Modern Design">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="testimonial-item">
-                                <div class="testimonial-card">
-                                  <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38" alt="Testimonial Image" class="img-fluid rounded">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="testimonial-item">
-                                <div class="testimonial-card">
-                                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba" class="img-fluid rounded" alt="Modern Design">
-                                </div>
-                            </div> --}}
-                            {{-- <div class="testimonial-item">
-                                <div class="testimonial-card">
-                                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" class="img-fluid rounded" alt="Sheer Curtains">
-                                </div>
-                            </div> --}}
                         </div>
                       </div>
                 </div>
@@ -531,13 +385,11 @@
 
 
     <!-- Contact Us Section -->
-    <section class="py-5">
+    <section class="py-5" id="contactUs">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="contact-form-container p-4 p-md-5 shadow-sm">
-                        {{-- <h2 class="text-center mb-3 font-weight-bold">CONTACT US</h2>
-                        <p class="text-center mb-4">We will get back in 5 minutes</p> --}}
                         <h2 class="text-center mb-3 font-weight-bold">{{ $storefrontSetting->contact_heading }}</h2>
                         <p class="text-center mb-4">{{ $storefrontSetting->contact_description }}</p>
 

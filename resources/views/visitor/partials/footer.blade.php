@@ -6,7 +6,9 @@
                     {{-- <img src="https://static.wixstatic.com/media/e01eb4_f39182f7b9934a9799ab4d03dad0aa07~mv2.png/v1/fill/w_115,h_42,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e01eb4_f39182f7b9934a9799ab4d03dad0aa07~mv2.png" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow"> --}}
                     <img src="{{ $generalSetting->site_logo }}" style="width: 115px; height: 42px;" class="img-fluid mr-2 mb-2" style="flex: 1 1 48%; object-fit: cover;" alt="Shadow">
                 </div>
-                <div class="font-weight-bold">BACK TO TOP ↑</div>
+                <div class="font-weight-bold">
+                    <a href="javascript:void(0)" id="scrollUpToStartWithBanner" class="text-dark" style="text-decoration: none;">BACK TO TOP <span style="font-size: 25px;">↑</span></a>
+                </div>
             </div>
 
             <hr>
@@ -29,10 +31,10 @@
                 <div class="col-md-4 mb-3"></div>
 
                 <div class="col-md-4 mb-3 footer-links">
-                    <a class="font-weight-bold" href="#">BOOK FREE MEASURMENTS</a><br><br>
-                    <a href="#">HOW IT WORKS</a><br><br>
-                    <a href="#">ONLINE CALCULATOR</a><br><br>
-                    <a href="#">HOW IT LOOKS</a>
+                    <a href="javascript:void(0)" class="font-weight-bold" id="scrollUpToFreeMeasurements">BOOK FREE MEASUREMENTS</a><br><br>
+                    <a href="javascript:void(0)" id="scrollUpToHowItWorks">HOW IT WORKS</a><br><br>
+                    <a href="javascript:void(0)" id="scrollUpToCalculator">ONLINE CALCULATOR</a><br><br>
+                    <a href="javascript:void(0)" id="scrollUpToHowItLooks">HOW IT LOOKS</a>
                 </div>
             </div>
 
